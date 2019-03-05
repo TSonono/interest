@@ -1,0 +1,6 @@
+framework module Pods_interest {
+  umbrella header "Pods-interest-umbrella.h"
+
+  export *
+  module * { export * }
+}
