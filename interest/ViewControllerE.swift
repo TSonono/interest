@@ -47,7 +47,7 @@ class ViewControllerE: UIViewController {
     }
 
     
-    @IBAction func show(_ sender: Any) {            //Continue continueButton only shows when text field not empty
+    @IBAction func hideButton(_ sender: Any) {            //Continue continueButton only shows when text field not empty
         if (debtField.text?.isEmpty == true) {
             continueButton.isHidden = true
         }
