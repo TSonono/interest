@@ -11,6 +11,7 @@ import TextFieldEffects
 
 // Global Variables:
 var interest:Double!
+var fees:Double!
 
 extension UITextField {         //Ensures no ability to paste in the text fields
     
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var upper: NSLayoutConstraint!
     
     @IBOutlet weak var testKaede: KaedeTextField!
+    @IBOutlet weak var kaedeFeeField: KaedeTextField!
     
     var interestConvert:String!
     
@@ -37,14 +39,15 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 20  // Make button have an elliptic shape
         button.isHidden = true
         //textField.textAlignment = .center
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.testKaede.becomeFirstResponder()
+        addDoneButtonOnKeyboard()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { //Delay because otherwise the keyboard will not load
+            self.kaedeFeeField.becomeFirstResponder()
         }
             // show keyboard directly by default
         
         // animate label text:
-        self.upper.constant = 120
-        UIView.animate(withDuration: 2.5, delay: 0, usingSpringWithDamping: 0.60, initialSpringVelocity: 3.70, animations: {
+        self.upper.constant = 12
+        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.43, initialSpringVelocity: 5.0, animations: {
             self.labelView.layoutIfNeeded()
         }, completion: nil)
     }
@@ -58,7 +61,7 @@ class ViewController: UIViewController {
     
 
     @IBAction func hideButton(_ sender: UITextField) {            //Continue button only shows when text field not empty
-        if (sender.text?.isEmpty == true || sender.text == ",") {
+        if (testKaede.text?.isEmpty == true || kaedeFeeField.text?.isEmpty == true || sender.text == ",") {
             button.isHidden = true
         }
         else {
@@ -83,9 +86,30 @@ class ViewController: UIViewController {
         interestConvert = testKaede.text!
         interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
         interest = Double(interestConvert)!
+        fees = Double(kaedeFeeField.text!)
     }
     
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(ViewController.doneButtonAction))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.testKaede.inputAccessoryView = doneToolbar
+        self.kaedeFeeField.inputAccessoryView = doneToolbar
+    }
     
+    @objc func doneButtonAction() {
+        self.testKaede.resignFirstResponder()
+        self.kaedeFeeField.resignFirstResponder()
+    }
 
 }
 

@@ -48,7 +48,7 @@ class ViewController2: UIViewController {
         interestDataEntry.value = Double(interest)
         interestDataEntry.label = "Interest"
         
-        feeDataEntry.value = 3500
+        feeDataEntry.value = fees
         feeDataEntry.label = "Fee"
         
         theChart = [amortDataEntry, interestDataEntry, feeDataEntry]
