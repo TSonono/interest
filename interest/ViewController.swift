@@ -13,6 +13,8 @@ import TextFieldEffects
 var interest:Double!
 var fees:Double!
 
+
+
 extension UITextField {         //Ensures no ability to paste in the text fields
     
     open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
@@ -39,7 +41,9 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 20  // Make button have an elliptic shape
         button.isHidden = true
         //textField.textAlignment = .center
+        
         addDoneButtonOnKeyboard()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { //Delay because otherwise the keyboard will not load
             self.kaedeFeeField.becomeFirstResponder()
         }
