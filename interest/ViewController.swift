@@ -12,6 +12,13 @@ import TextFieldEffects
 // Global Variables:
 var interest:Double!
 
+extension UITextField {         //Ensures no ability to paste in the text fields
+    
+    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(UIResponderStandardEditActions.cut) || action == #selector(UIResponderStandardEditActions.copy)
+    }
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var button: UIButton!
@@ -30,7 +37,7 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 20  // Make button have an elliptic shape
         button.isHidden = true
         //textField.textAlignment = .center
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.testKaede.becomeFirstResponder()
         }
             // show keyboard directly by default
@@ -51,7 +58,7 @@ class ViewController: UIViewController {
     
 
     @IBAction func hideButton(_ sender: UITextField) {            //Continue button only shows when text field not empty
-        if (sender.text?.isEmpty == true) {
+        if (sender.text?.isEmpty == true || sender.text == ",") {
             button.isHidden = true
         }
         else {
