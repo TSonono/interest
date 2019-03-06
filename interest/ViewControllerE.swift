@@ -29,8 +29,10 @@ class ViewControllerE: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         continueButton.layer.cornerRadius = 20  // Make continueButton have an elliptic shape
         continueButton.isHidden = true
+        
+        addDoneButtonOnKeyboard()
         //debtField.textAlignment = .center
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
             self.debtFieldKaede.becomeFirstResponder()
         }
         
@@ -62,6 +64,26 @@ class ViewControllerE: UIViewController {
     
     @IBAction func setDebt(_ sender: Any) {
         loanAmount = Int(debtFieldKaede.text!)
+    }
+    
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(ViewController.doneButtonAction))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.debtFieldKaede.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction() {
+        self.debtFieldKaede.resignFirstResponder()
     }
 
 }
