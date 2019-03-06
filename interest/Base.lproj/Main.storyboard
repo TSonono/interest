@@ -90,6 +90,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="4kd-I9-zSj"/>
                     <navigationItem key="navigationItem" title="Interest" id="oh8-jP-Z5d">
                         <barButtonItem key="backBarButtonItem" title=" " id="ID9-4D-Ovk"/>
                     </navigationItem>
@@ -105,10 +106,36 @@
             </objects>
             <point key="canvasLocation" x="-58.399999999999999" y="77.58620689655173"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item 1-->
+        <scene sceneID="KAI-Eh-4yr">
+            <objects>
+                <viewController id="RfK-NH-vtO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jBA-1Q-wye">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello World!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woK-qq-thQ">
+                                <rect key="frame" x="115" y="254" width="145" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3LU-Dj-X0c"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="45c-Z6-Z0f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhz-e2-JY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-951.20000000000005" y="-853.44827586206895"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="Sw9-xa-rI8">
             <objects>
                 <navigationController id="t5f-qT-jkD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="hkg-Bj-mw3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wzB-jh-vYG">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -201,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRJ-D6-X2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="78"/>
+            <point key="canvasLocation" x="1575" y="78"/>
         </scene>
         <!--Debt-->
         <scene sceneID="TBj-Qk-gk6">

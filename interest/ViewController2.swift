@@ -107,7 +107,7 @@ class ViewController2: UIViewController {
         while year < nYears + 1 {
 
             priorDebt = tempDebt
-            tempAmort = 0.03 * tempDebt
+            tempAmort = 0.03 * Double(loanAmount)  //TODO: Change to something like Double(loanAmount)
             tempInterest = (interestRate/100) * tempDebt
             tempDebt -= tempAmort
             
