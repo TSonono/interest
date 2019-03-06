@@ -7,31 +7,44 @@
 //
 
 import UIKit
+import TextFieldEffects
 
 // Global Variables:
 var interest:Double!
+
+extension UITextField {         //Ensures no ability to paste in the text fields
+    
+    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(UIResponderStandardEditActions.cut) || action == #selector(UIResponderStandardEditActions.copy)
+    }
+}
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var textField: UITextField!
-    
     @IBOutlet weak var labelView: UIView!
     @IBOutlet weak var upper: NSLayoutConstraint!
+    
+    @IBOutlet weak var testKaede: KaedeTextField!
     
     var interestConvert:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         button.layer.cornerRadius = 20  // Make button have an elliptic shape
         button.isHidden = true
-        textField.textAlignment = .center
-        textField.becomeFirstResponder()    // show keyboard directly by default
+        //textField.textAlignment = .center
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.testKaede.becomeFirstResponder()
+        }
+            // show keyboard directly by default
         
         // animate label text:
         self.upper.constant = 120
-        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.43, initialSpringVelocity: 5.0, animations: {
+        UIView.animate(withDuration: 2.5, delay: 0, usingSpringWithDamping: 0.60, initialSpringVelocity: 3.70, animations: {
             self.labelView.layoutIfNeeded()
         }, completion: nil)
     }
@@ -44,8 +57,8 @@ class ViewController: UIViewController {
     }
     
 
-    @IBAction func show(_ sender: Any) {            //Continue button only shows when text field not empty
-        if (textField.text?.isEmpty == true) {
+    @IBAction func hideButton(_ sender: UITextField) {            //Continue button only shows when text field not empty
+        if (sender.text?.isEmpty == true || sender.text == ",") {
             button.isHidden = true
         }
         else {
@@ -53,10 +66,21 @@ class ViewController: UIViewController {
         }
     }
     
-
     
-    @IBAction func bindning(_ sender: Any) {
-        interestConvert = textField.text!
+    @IBAction func decOrNo(_ sender: UITextField) {
+        let cont = ","
+        let field = sender.text
+        if (field!.contains(cont)) {
+            sender.keyboardType = UIKeyboardType.numberPad
+        }
+        else {
+            sender.keyboardType = UIKeyboardType.decimalPad
+        }
+        sender.reloadInputViews()
+    }
+    
+    @IBAction func setInterest(_ sender: Any) {
+        interestConvert = testKaede.text!
         interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
         interest = Double(interestConvert)!
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TextFieldEffects
 
 // Global Variables:
 var loanAmount:Int!
@@ -14,23 +15,21 @@ var loanAmount:Int!
 
 class ViewControllerE: UIViewController {
     
-    var loanAmnt:String!
-    
-    
     
     @IBOutlet weak var continueButton: UIButton!
-    @IBOutlet weak var debtField: UITextField!
+    //@IBOutlet weak var debtField: UITextField!
     @IBOutlet weak var questionLabel: UIView!
     @IBOutlet weak var upperConst: NSLayoutConstraint!
     
+    @IBOutlet weak var debtFieldKaede: KaedeTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         continueButton.layer.cornerRadius = 20  // Make continueButton have an elliptic shape
         continueButton.isHidden = true
-        debtField.textAlignment = .center
-        debtField.becomeFirstResponder()    // show keyboard directly by default
+        //debtField.textAlignment = .center
+        debtFieldKaede.becomeFirstResponder()    // show keyboard directly by default
         
         // animate label text:
         self.upperConst.constant = 120
@@ -47,8 +46,8 @@ class ViewControllerE: UIViewController {
     }
 
     
-    @IBAction func show(_ sender: Any) {            //Continue continueButton only shows when text field not empty
-        if (debtField.text?.isEmpty == true) {
+    @IBAction func hideButton(_ sender: UITextField) {            //Continue continueButton only shows when text field not empty
+        if (sender.text!.isEmpty) {
             continueButton.isHidden = true
         }
         else {
@@ -59,12 +58,7 @@ class ViewControllerE: UIViewController {
     
     
     @IBAction func setDebt(_ sender: Any) {
-        loanAmount = Int(debtField.text!)
-        loanAmnt = debtField.text
-        let a = loanAmount!;
-        let b = interest!
-        //print("Skuld:", a);
-        //print("Bindningstid:", b);
+        loanAmount = Int(debtFieldKaede.text!)
     }
 
 }
