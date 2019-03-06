@@ -25,11 +25,14 @@ class ViewControllerE: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         continueButton.layer.cornerRadius = 20  // Make continueButton have an elliptic shape
         continueButton.isHidden = true
         //debtField.textAlignment = .center
-        debtFieldKaede.becomeFirstResponder()    // show keyboard directly by default
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            self.debtFieldKaede.becomeFirstResponder()
+        }
         
         // animate label text:
         self.upperConst.constant = 120
