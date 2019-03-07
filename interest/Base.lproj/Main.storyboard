@@ -155,6 +155,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.89700764417648315" green="0.66588610410690308" blue="0.71765029430389404" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
+                                    <action selector="pauseTimerForSlider:" destination="IgW-a2-uoF" eventType="valueChanged" id="kDa-Ne-Xv6"/>
                                     <action selector="sliderMoves:" destination="IgW-a2-uoF" eventType="valueChanged" id="fQo-4M-BYM"/>
                                 </connections>
                             </view>

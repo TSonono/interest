@@ -13,7 +13,7 @@ import Charts
 import fluid_slider
 
 class ViewController2: UIViewController {
-    
+    var timer = Timer()
     let STARTING_FRACTION = 0.5
     let AMORTIZATION_RATE = 0.03
 
@@ -52,7 +52,9 @@ class ViewController2: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        pieChart.holeColor = pieChart.backgroundColor
+        scheduledTimerWithTimeInterval()
+
         
         interestRate = interest
         sliderLimit = whenDebtGone(debt: loanDebt)
@@ -97,6 +99,15 @@ class ViewController2: UIViewController {
             self?.setLabelHidden(false, animated: true)
         }
         
+    }
+    
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateCounting(){
+        pieChart.rotationAngle += 0.25
     }
     
     func updateChartData() {
@@ -201,20 +212,15 @@ class ViewController2: UIViewController {
         }
     }
     
-    
-    
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func pauseTimerForSlider(_ sender: Any) {
+        timer.invalidate()
     }
-    */
+    @IBAction func resumeTimerForSlider(_ sender: Any) {
+        timer.fire()
+    }
+    
+    
+    
 
 }
 
