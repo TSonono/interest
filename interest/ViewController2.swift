@@ -52,19 +52,21 @@ class ViewController2: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        
         interestRate = interest
-        sliderLimit = whenDebtGone(loanAmount: loanAmount)
+        sliderLimit = whenDebtGone(debt: loanDebt)
         
         pieChart.chartDescription?.text = ""
         pieChart.legend.enabled = false
-        amortDataEntry.value = Double(loanAmount)
-        amortDataEntry.label = "Amortization"
+        amortDataEntry.value = Double(loanDebt)
+        amortDataEntry.label = "Amortering"
         
         interestDataEntry.value = Double(interest)
-        interestDataEntry.label = "Interest"
+        interestDataEntry.label = "Ränta"
         
         feeDataEntry.value = fees
-        feeDataEntry.label = "Fee"
+        feeDataEntry.label = "Avgifter"
         
         theChart = [amortDataEntry, interestDataEntry, feeDataEntry]
         
@@ -95,7 +97,6 @@ class ViewController2: UIViewController {
             self?.setLabelHidden(false, animated: true)
         }
         
-        
     }
     
     func updateChartData() {
@@ -117,21 +118,21 @@ class ViewController2: UIViewController {
         //print("tenant fee:", feeDataEntry.value)
     }
     
-    func whenDebtGone(loanAmount:Int) -> Double {
-        var tempDebt:Double = Double(loanAmount)
+    func whenDebtGone(debt:Int) -> Double {
+        var tempDebt:Double = Double(debt)
         var tempAmort:Double = 0
         
         var year:Double = 0
         while (tempDebt > 0) {
-            tempAmort = AMORTIZATION_RATE * Double(loanAmount)  //TODO: Change to something like Double(loanAmount)
+            tempAmort = AMORTIZATION_RATE * Double(loanAmount)
             tempDebt -= tempAmort
             year += 1
         }
         return year
     }
     
-    func calc_monthly_payment(nYears:Int, loanAmount: Int, interestRate:Double) -> (amortization: Double, interest: Double, resultingDebt: Double){
-        var tempDebt:Double = Double(loanAmount)
+    func calc_monthly_payment(nYears:Int, debt: Int, interestRate:Double) -> (amortization: Double, interest: Double, resultingDebt: Double){
+        var tempDebt:Double = Double(debt)
         var tempAmort:Double = 0
         var tempInterest:Double = 0
         var priorDebt:Double = 0
@@ -146,18 +147,7 @@ class ViewController2: UIViewController {
             
             year += 1
         }
-/*        if (tempDebt < 0) {
-            priorDebt = 0
-            tempAmort = 0
-            amortDataEntry.label = ""
-            interestDataEntry.label = ""
-            return ((tempAmort * 1), (tempInterest * 1), ((priorDebt) * 1).rounded()/1)
-        }
-        else {
-            amortDataEntry.label = "Amortization"
-            interestDataEntry.label = "Interest"
-            return (((tempAmort/12) * 1).rounded()/1, ((tempInterest/12) * 1).rounded()/1, ((priorDebt) * 1).rounded()/1)
-        }*/
+
         return (((tempAmort/12) * 1).rounded()/1, ((tempInterest/12) * 1).rounded()/1, ((priorDebt) * 1).rounded()/1)
     }
 
@@ -169,7 +159,7 @@ class ViewController2: UIViewController {
     
     func changeValues() {
         let sliderVal = Double(slider.fraction) * sliderLimit
-        let dispValues = calc_monthly_payment(nYears: Int((sliderVal * 1).rounded()/1), loanAmount: loanAmount, interestRate: interestRate)
+        let dispValues = calc_monthly_payment(nYears: Int((sliderVal * 1).rounded()/1), debt: loanDebt, interestRate: interestRate)
         
         if (dispValues.resultingDebt < 0) {
             amortDataEntry.value = 0
@@ -182,8 +172,8 @@ class ViewController2: UIViewController {
             amortDataEntry.value = dispValues.amortization
             interestDataEntry.value = dispValues.interest
             debtLabel.text = String(Int(dispValues.resultingDebt))
-            amortDataEntry.label = "Amortization"
-            interestDataEntry.label = "Interest"
+            amortDataEntry.label = "Amortering"
+            interestDataEntry.label = "Ränta"
         }
         
         

@@ -1,69 +1,59 @@
 //
-//  ViewController.swift
+//  ViewFees.swift
 //  interest
 //
-//  Created by Tofik Sonono on 2018-01-15.
-//  Copyright © 2018 Tofik Sonono. All rights reserved.
+//  Created by Tofik Sonono on 2019-03-07.
+//  Copyright © 2019 Tofik Sonono. All rights reserved.
 //
+
 
 import UIKit
 import TextFieldEffects
 
 // Global Variables:
-var interest:Double!
 
 
-extension UITextField {         //Ensures no ability to paste in the text fields
-    
-    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return action == #selector(UIResponderStandardEditActions.cut) || action == #selector(UIResponderStandardEditActions.copy)
-    }
-}
+var fees:Double!
 
-class ViewController: UIViewController {
+
+class ViewFees: UIViewController {
     
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var kaedeFeeField: KaedeTextField!
     @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
-    @IBOutlet weak var testKaede: KaedeTextField!
     
-    var interestConvert:String!
-    var pulsateTrack:Int! = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        button.layer.cornerRadius = 20  // Make button have an elliptic shape
+        button.layer.cornerRadius = 20// Make button have an elliptic shape
         button.isHidden = true
-        //textField.textAlignment = .center
+        
         
         addDoneButtonOnKeyboard()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
-            self.testKaede.becomeFirstResponder()
+            self.kaedeFeeField.becomeFirstResponder()
         }
-            // show keyboard directly by default
+        // show keyboard directly by default
         
     }
     
- 
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     @IBAction func hideButton(_ sender: UITextField) {            //Continue button only shows when text field not empty
-        if (testKaede.text?.isEmpty == true || sender.text == ",") {
+        if (kaedeFeeField.text?.isEmpty == true) {
             button.isHidden = true
         }
         else {
             button.isHidden = false
-            pulsateTrack += 1
-            if (pulsateTrack % 6 == 0) {
-                button.pulsate()
-            }
         }
     }
     
@@ -74,6 +64,19 @@ class ViewController: UIViewController {
     @IBAction func buttonRise(_ sender: Any) {
         self.buttonFromBottom.constant = 270
     }
+    
+    @IBAction func switchTextFee(_ sender: KaedeTextField) {
+        kaedeFeeField.placeholder = "kr"
+    }
+    
+    @IBAction func backTextFee(_ sender: KaedeTextField) {
+        if ((kaedeFeeField.text?.isEmpty)!) {
+            kaedeFeeField.placeholder = ""
+        }
+    }
+    
+    
+    
     
     @IBAction func decOrNo(_ sender: UITextField) {
         let cont = ","
@@ -87,20 +90,8 @@ class ViewController: UIViewController {
         sender.reloadInputViews()
     }
     
-    @IBAction func switchTextFee(_ sender: KaedeTextField) {
-        testKaede.placeholder = "%"
-    }
-    
-    @IBAction func backTextFee(_ sender: KaedeTextField) {
-        if ((testKaede.text?.isEmpty)!) {
-            testKaede.placeholder = ""
-        }
-    }
-    
-    @IBAction func setInterest(_ sender: Any) {
-        interestConvert = testKaede.text!
-        interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
-        interest = Double(interestConvert)!
+    @IBAction func setFees(_ sender: Any) {
+        fees = Double(kaedeFeeField.text!)
     }
     
     func addDoneButtonOnKeyboard() {
@@ -116,12 +107,14 @@ class ViewController: UIViewController {
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         
-        self.testKaede.inputAccessoryView = doneToolbar
+        self.kaedeFeeField.inputAccessoryView = doneToolbar
+        
     }
     
     @objc func doneButtonAction() {
-        self.testKaede.resignFirstResponder()
+        self.kaedeFeeField.resignFirstResponder()
     }
-
+    
 }
+
 

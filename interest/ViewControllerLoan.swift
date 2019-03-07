@@ -1,24 +1,22 @@
 //
-//  ViewControllerE.swift
+//  ViewControllerLoan.swift
 //  interest
 //
-//  Created by Tofik Sonono on 2019-03-05.
+//  Created by Tofik Sonono on 2019-03-07.
 //  Copyright © 2019 Tofik Sonono. All rights reserved.
 //
+
 
 import UIKit
 import TextFieldEffects
 
+var loanAmount:Int!
 
-// Global Variables:
-var loanDebt:Int!
+class ViewControllerLoan: UIViewController {
 
-
-class ViewControllerE: UIViewController {
     
     
     @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
-    @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     //@IBOutlet weak var debtField: UITextField!
     
@@ -29,8 +27,7 @@ class ViewControllerE: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         continueButton.layer.cornerRadius = 20  // Make continueButton have an elliptic shape
-        tipLabel.layer.masksToBounds = true
-        tipLabel.layer.cornerRadius = 20
+        continueButton.isHidden = true
         
         addDoneButtonOnKeyboard()
         //debtField.textAlignment = .center
@@ -39,10 +36,6 @@ class ViewControllerE: UIViewController {
         }
         
         // animate label text:
-
-        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
-            self.tipLabel.frame.origin.x = 4
-        }, completion: nil)
     }
     
     
@@ -51,17 +44,10 @@ class ViewControllerE: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     @IBAction func hideButton(_ sender: UITextField) {            //Continue continueButton only shows when text field not empty
-        var currentVal:Int
-        if (sender.text?.isEmpty == false) {
-            currentVal = Int(sender.text!)!
-        }
-        else {
-            currentVal = 0
-        }
-        if (currentVal > loanAmount) {
+        if (sender.text!.isEmpty) {
             continueButton.isHidden = true
         }
         else {
@@ -79,55 +65,11 @@ class ViewControllerE: UIViewController {
     
     
     
-    @IBAction func hideTip(_ sender: KaedeTextField) {
-        var currentVal:Int
-        if (sender.text?.isEmpty == false) {
-            currentVal = Int(sender.text!)!
-        }
-        else {
-            currentVal = 0
-        }
-        
-        if (sender.text?.isEmpty == true) {
-            self.tipLabel.frame.origin.x = 390
-            tipLabel.text = "Tips: Lämna fältet tomt om du planerar att ta lån!"
-            tipLabel.backgroundColor = UIColor(red: 87/255, green: 95/255, blue: 207/255, alpha: 1.0)
-            UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
-                self.tipLabel.frame.origin.x = 4
-            }, completion: nil)
-        }
-        else if (currentVal > loanAmount) {
-            if (self.tipLabel.frame.origin.x != 4) {
-                self.tipLabel.frame.origin.x = -390
-                tipLabel.text = "Skulden får inte vara större än lånebeloppet!"
-                tipLabel.backgroundColor = UIColor(red: 245/255, green: 59/255, blue: 87/255, alpha: 1.0)
-                UIView.animate(withDuration: 0.5, delay: 0.25, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
-                    self.tipLabel.frame.origin.x = 4
-                }, completion: nil)
-            }
 
-        }
-        else {
-            UIView.animate(withDuration: 0.5, delay: 0.5, animations: {
-                if (self.tipLabel.text == "Skulden får inte vara större än lånebeloppet!") {
-                    self.tipLabel.frame.origin.x = -390
-                }
-                else {
-                    self.tipLabel.frame.origin.x = 390
-                }
-
-            }, completion: nil)
-        }
-    }
     
     
     @IBAction func setDebt(_ sender: Any) {
-        if ((debtFieldKaede.text?.isEmpty)!) {
-            loanDebt = loanAmount
-        }
-        else {
-            loanDebt = Int(debtFieldKaede.text!)
-        }
+        loanAmount = Int(debtFieldKaede.text!)
     }
     
     func addDoneButtonOnKeyboard() {
@@ -159,6 +101,6 @@ class ViewControllerE: UIViewController {
             debtFieldKaede.placeholder = ""
         }
     }
-
+    
 }
 

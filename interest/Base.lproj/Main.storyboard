@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,37 +15,30 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTL-UA-f8E">
-                                <rect key="frame" x="91" y="412" width="193" height="42"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.70588235294117641" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="91" y="329" width="193" height="42"/>
+                                <color key="backgroundColor" red="0.29411764705882354" green="0.81176470588235294" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <state key="normal" title="Fortsätt">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="setInterest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zOA-2q-VPf"/>
-                                    <segue destination="JEE-Qr-TrE" kind="show" id="Kw6-F1-Op2"/>
+                                    <segue destination="x1y-oG-aGm" kind="show" id="dMH-iR-mif"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ydk-j0-C5e">
-                                <rect key="frame" x="47" y="-262" width="281" height="510"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vad är din ränta? Ange i procent." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONe-QI-NRc">
-                                        <rect key="frame" x="-11" y="34" width="302" height="92"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.59999999999999998" green="0.70588235290000001" blue="0.20000000000000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
-                                        <color key="textColor" name="macColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQN-xa-x7q" customClass="KaedeTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="0.0" y="364" width="375" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ränta?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EA-yI-GDo">
+                                <rect key="frame" x="91" y="0.0" width="192" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="0.11764705882352941" green="0.15294117647058825" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQN-xa-x7q" customClass="KaedeTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="0.0" y="200" width="375" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96078431372549022" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
@@ -58,38 +50,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="backTextInterest:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="rwX-uk-fSI"/>
+                                    <action selector="backTextFee:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Cgd-64-Hjk"/>
+                                    <action selector="buttonDrop:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="bJN-Z6-QYt"/>
+                                    <action selector="buttonRise:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="E5m-Ml-uZp"/>
                                     <action selector="decOrNo:" destination="BYZ-38-t0r" eventType="editingChanged" id="hsT-q4-SIb"/>
                                     <action selector="hideButton:" destination="BYZ-38-t0r" eventType="editingChanged" id="Kxd-YV-x6m"/>
-                                    <action selector="switchTextInterest:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="hHv-AZ-DDD"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fees" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZN-eq-XMB" customClass="KaedeTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="0.0" y="316" width="375" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
-                                        <color key="value" red="0.92156862750000001" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="backTextFee:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="9TX-8g-8Mn"/>
-                                    <action selector="hideButton:" destination="BYZ-38-t0r" eventType="editingChanged" id="Wbq-pt-X4d"/>
-                                    <action selector="switchTextFee:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="ZCN-bI-CfI"/>
+                                    <action selector="switchTextFee:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="WrM-6h-xDd"/>
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.65607843137254895" blue="0.71527347781217743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dTL-UA-f8E" secondAttribute="trailing" constant="91" id="Af5-DS-D0k"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dTL-UA-f8E" secondAttribute="bottom" constant="275" id="Mz4-sS-hhl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ydk-j0-C5e" secondAttribute="trailing" constant="47" id="SJc-3K-LOp"/>
-                            <constraint firstItem="Ydk-j0-C5e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-350" id="Ukj-wO-hqj"/>
-                            <constraint firstItem="Ydk-j0-C5e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="kLl-3l-iWV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dTL-UA-f8E" secondAttribute="bottom" constant="270" id="Mz4-sS-hhl"/>
                             <constraint firstItem="dTL-UA-f8E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="qtM-1C-bT7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -100,15 +73,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="button" destination="dTL-UA-f8E" id="jBG-kD-wLl"/>
-                        <outlet property="kaedeFeeField" destination="qZN-eq-XMB" id="Fb2-vD-G8D"/>
-                        <outlet property="labelView" destination="Ydk-j0-C5e" id="7R9-Vn-Wr5"/>
+                        <outlet property="buttonFromBottom" destination="Mz4-sS-hhl" id="tdN-Hk-Rl0"/>
                         <outlet property="testKaede" destination="XQN-xa-x7q" id="Fng-3x-rjB"/>
-                        <outlet property="upper" destination="Ukj-wO-hqj" id="fy8-lX-Wrs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58.399999999999999" y="77.58620689655173"/>
+            <point key="canvasLocation" x="-990" y="78"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nam-e7-CZT">
@@ -126,9 +97,9 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIZ-4S-3da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1825" y="-543"/>
+            <point key="canvasLocation" x="-2769" y="-414"/>
         </scene>
-        <!--Settings-->
+        <!--Inställningar-->
         <scene sceneID="KAI-Eh-4yr">
             <objects>
                 <viewController id="RfK-NH-vtO" sceneMemberID="viewController">
@@ -147,25 +118,21 @@
                         <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="3LU-Dj-X0c"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="icons8-settings-30" id="45c-Z6-Z0f"/>
+                    <tabBarItem key="tabBarItem" title="Inställningar" image="icons8-settings-30" id="45c-Z6-Z0f"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhz-e2-JY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-951.20000000000005" y="-853.44827586206895"/>
+            <point key="canvasLocation" x="-1382" y="-1003"/>
         </scene>
-        <!-- Calculate-->
+        <!--Räkna!-->
         <scene sceneID="Sw9-xa-rI8">
             <objects>
                 <navigationController id="t5f-qT-jkD" customClass="NavigationController" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="icons8-calculator-30" id="hkg-Bj-mw3">
-                        <string key="title" base64-UTF8="YES">
-EENhbGN1bGF0ZQ
-</string>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wzB-jh-vYG">
+                    <tabBarItem key="tabBarItem" title="Räkna!" image="icons8-calculator-30" id="hkg-Bj-mw3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="wzB-jh-vYG">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.93725490196078431" green="0.65607843137254895" blue="0.71527347781217743" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Cj-vJ-khm"/>
@@ -173,54 +140,54 @@ EENhbGN1bGF0ZQ
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UO0-c5-Vfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-831" y="78"/>
+            <point key="canvasLocation" x="-1996" y="78"/>
         </scene>
-        <!--Result-->
+        <!--Resultat-->
         <scene sceneID="jsC-zQ-ByB">
             <objects>
                 <viewController id="IgW-a2-uoF" customClass="ViewController2" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FzU-k0-GGv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SH1-h0-Vqg" customClass="Slider" customModule="fluid_slider">
-                                <rect key="frame" x="29" y="651" width="317" height="62"/>
+                                <rect key="frame" x="29" y="561" width="317" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.89700764417648315" green="0.66588610410690308" blue="0.71765029430389404" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="sliderMoves:" destination="IgW-a2-uoF" eventType="valueChanged" id="fQo-4M-BYM"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRP-lw-5sR">
-                                <rect key="frame" x="192" y="542" width="167" height="52"/>
+                                <rect key="frame" x="233" y="452" width="126" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monthly Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIi-CE-mGD">
-                                <rect key="frame" x="29" y="542" width="155" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Månadskostnad:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIi-CE-mGD">
+                                <rect key="frame" x="29" y="452" width="196" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZE-bf-9E4">
-                                <rect key="frame" x="192" y="486" width="167" height="48"/>
+                                <rect key="frame" x="233" y="396" width="126" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remaining Debt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1h-Dn-9ZM">
-                                <rect key="frame" x="29" y="486" width="173" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Återstående skuld:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1h-Dn-9ZM">
+                                <rect key="frame" x="29" y="396" width="196" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Years Ahead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJl-RS-HdS">
-                                <rect key="frame" x="125" y="597" width="125" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="År frammåt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJl-RS-HdS">
+                                <rect key="frame" x="125" y="507" width="125" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -228,15 +195,15 @@ EENhbGN1bGF0ZQ
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OMO-ry-kI5" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="50" width="343" height="428"/>
+                                <rect key="frame" x="16" y="-40" width="343" height="428"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.89700764417648315" green="0.66588610410690308" blue="0.71765029430389404" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.89700764417648315" green="0.66588610410690308" blue="0.71765029430389404" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="m74-7w-eth"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Result" id="ei4-wY-ssO"/>
+                    <navigationItem key="navigationItem" title="Resultat" id="ei4-wY-ssO"/>
                     <connections>
                         <outlet property="debtLabel" destination="4ZE-bf-9E4" id="A7y-Ib-gan"/>
                         <outlet property="label" destination="hJl-RS-HdS" id="aW0-jR-8IS"/>
@@ -247,19 +214,19 @@ EENhbGN1bGF0ZQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRJ-D6-X2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1573.5999999999999" y="77.58620689655173"/>
+            <point key="canvasLocation" x="2448.8000000000002" y="77.58620689655173"/>
         </scene>
         <!--View ControllerE-->
         <scene sceneID="TBj-Qk-gk6">
             <objects>
                 <viewController id="JEE-Qr-TrE" customClass="ViewControllerE" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yro-7G-1dU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJf-uZ-0P0">
-                                <rect key="frame" x="91" y="412" width="193" height="42"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.70588235294117641" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="91" y="329" width="193" height="42"/>
+                                <color key="backgroundColor" red="0.29411764705882354" green="0.81176470588235294" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <state key="normal" title="Fortsätt">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -269,22 +236,163 @@ EENhbGN1bGF0ZQ
                                     <segue destination="IgW-a2-uoF" kind="show" id="vAZ-hV-QEI"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GfM-K7-ugQ">
-                                <rect key="frame" x="47" y="-262" width="281" height="510"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hur stor är skulden på dtt lån?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MH-KS-4t8">
-                                        <rect key="frame" x="-11" y="34" width="302" height="92"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.59999999999999998" green="0.70588235290000001" blue="0.20000000000000001" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
-                                        <color key="textColor" name="macColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loan amount" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1y-x1-0Nh" customClass="KaedeTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="0.0" y="364" width="375" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tips: Lämna fältet tomt om du planerar att ta lån!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwC-Tv-kd4">
+                                <rect key="frame" x="390" y="157" width="355" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.3411764705882353" green="0.37254901960784315" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1y-x1-0Nh" customClass="KaedeTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="0.0" y="202" width="375" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
+                                        <color key="value" red="0.92156862750000001" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backTextFee:" destination="JEE-Qr-TrE" eventType="editingDidEnd" id="gcp-m5-o8N"/>
+                                    <action selector="buttonDrop:" destination="JEE-Qr-TrE" eventType="editingDidEnd" id="Z2q-Ho-SQq"/>
+                                    <action selector="buttonRise:" destination="JEE-Qr-TrE" eventType="editingDidBegin" id="dGD-tm-ISw"/>
+                                    <action selector="hideButton:" destination="JEE-Qr-TrE" eventType="editingChanged" id="9hp-bH-QfJ"/>
+                                    <action selector="hideTip:" destination="JEE-Qr-TrE" eventType="editingChanged" id="cgE-eR-qIP"/>
+                                    <action selector="switchTextFee:" destination="JEE-Qr-TrE" eventType="editingDidBegin" id="43j-OL-VFb"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nuvarande skuld?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS4-NV-pw2">
+                                <rect key="frame" x="42" y="0.0" width="291" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="0.11764705882352941" green="0.15294117647058825" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.65607843137254895" blue="0.71699999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YC9-Gx-C2v" firstAttribute="bottom" secondItem="GJf-uZ-0P0" secondAttribute="bottom" constant="270" id="RCB-W4-HvO"/>
+                            <constraint firstItem="GJf-uZ-0P0" firstAttribute="leading" secondItem="YC9-Gx-C2v" secondAttribute="leading" constant="91" id="bZe-u4-ii4"/>
+                            <constraint firstItem="YC9-Gx-C2v" firstAttribute="trailing" secondItem="GJf-uZ-0P0" secondAttribute="trailing" constant="91" id="maK-84-P1R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YC9-Gx-C2v"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fml-pF-srb">
+                        <barButtonItem key="backBarButtonItem" title=" " id="dea-v9-vzn"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonFromBottom" destination="RCB-W4-HvO" id="2E5-O5-dEu"/>
+                        <outlet property="continueButton" destination="GJf-uZ-0P0" id="58r-d6-Dib"/>
+                        <outlet property="debtFieldKaede" destination="h1y-x1-0Nh" id="6it-fk-hnA"/>
+                        <outlet property="tipLabel" destination="hwC-Tv-kd4" id="Ref-dT-yhh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A0q-qL-c7m" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533.5999999999999" y="77.58620689655173"/>
+        </scene>
+        <!--View Controller Loan Amount-->
+        <scene sceneID="b9P-4D-ZBv">
+            <objects>
+                <viewController id="jKu-fC-r4L" userLabel="View Controller Loan Amount" customClass="ViewControllerLoan" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="abf-uM-cQJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBp-sr-SX7">
+                                <rect key="frame" x="91" y="329" width="193" height="42"/>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.81176470590000005" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Fortsätt">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="setDebt:" destination="jKu-fC-r4L" eventType="touchUpInside" id="M5C-WH-oST"/>
+                                    <segue destination="JEE-Qr-TrE" kind="show" id="A07-uP-GqD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-g2-cUS" customClass="KaedeTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="0.0" y="202" width="375" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
+                                        <color key="value" red="0.92156862750000001" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backTextFee:" destination="jKu-fC-r4L" eventType="editingDidEnd" id="A6G-RN-ImS"/>
+                                    <action selector="buttonDrop:" destination="jKu-fC-r4L" eventType="editingDidEnd" id="7H1-Hq-E6b"/>
+                                    <action selector="buttonRise:" destination="jKu-fC-r4L" eventType="editingDidBegin" id="WAb-BL-ssZ"/>
+                                    <action selector="hideButton:" destination="jKu-fC-r4L" eventType="editingChanged" id="51h-gT-arY"/>
+                                    <action selector="switchTextFee:" destination="jKu-fC-r4L" eventType="editingDidBegin" id="Ei6-eu-W8C"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lånebelopp?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA0-e9-2D8">
+                                <rect key="frame" x="79" y="0.0" width="217" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="0.1176470588" green="0.1529411765" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.65607843139999988" blue="0.71527347784955297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IM9-xn-30d" firstAttribute="trailing" secondItem="pBp-sr-SX7" secondAttribute="trailing" constant="91" id="hHp-2J-Dqm"/>
+                            <constraint firstItem="pBp-sr-SX7" firstAttribute="leading" secondItem="IM9-xn-30d" secondAttribute="leading" constant="91" id="iuy-mK-yVi"/>
+                            <constraint firstItem="IM9-xn-30d" firstAttribute="bottom" secondItem="pBp-sr-SX7" secondAttribute="bottom" constant="270" id="saT-Nf-MEd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IM9-xn-30d"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zOf-kt-VkQ">
+                        <barButtonItem key="backBarButtonItem" title=" " id="vCQ-PX-8v9"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonFromBottom" destination="saT-Nf-MEd" id="ouZ-Pk-qQa"/>
+                        <outlet property="continueButton" destination="pBp-sr-SX7" id="w6n-7d-rGv"/>
+                        <outlet property="debtFieldKaede" destination="4gF-g2-cUS" id="1mu-Wh-tMh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="68Q-xh-tEC" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="78"/>
+        </scene>
+        <!--Fees-->
+        <scene sceneID="P7F-0V-5DY">
+            <objects>
+                <viewController title="Fees" id="x1y-oG-aGm" customClass="ViewFees" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VR0-oJ-fia">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uH-6j-OSh">
+                                <rect key="frame" x="91" y="329" width="193" height="42"/>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.81176470590000005" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Fortsätt">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="setFees:" destination="x1y-oG-aGm" eventType="touchDragInside" id="wrg-ue-4R1"/>
+                                    <segue destination="jKu-fC-r4L" kind="show" id="Utt-DN-BaU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Avgifter?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8P-R0-F6c">
+                                <rect key="frame" x="91" y="0.0" width="192" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" red="0.1176470588" green="0.1529411765" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VXP-Hm-Im9" customClass="KaedeTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="0.0" y="204" width="375" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
@@ -296,43 +404,39 @@ EENhbGN1bGF0ZQ
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="backTextFee:" destination="JEE-Qr-TrE" eventType="editingDidEnd" id="gcp-m5-o8N"/>
-                                    <action selector="hideButton:" destination="JEE-Qr-TrE" eventType="editingChanged" id="9hp-bH-QfJ"/>
-                                    <action selector="switchTextFee:" destination="JEE-Qr-TrE" eventType="editingDidBegin" id="43j-OL-VFb"/>
+                                    <action selector="backTextFee:" destination="x1y-oG-aGm" eventType="editingDidEnd" id="Wol-n8-4RT"/>
+                                    <action selector="buttonDrop:" destination="x1y-oG-aGm" eventType="editingDidEnd" id="igi-hC-Bom"/>
+                                    <action selector="buttonRise:" destination="x1y-oG-aGm" eventType="editingDidBegin" id="aPb-Es-tYQ"/>
+                                    <action selector="hideButton:" destination="x1y-oG-aGm" eventType="editingChanged" id="vLp-DJ-F9S"/>
+                                    <action selector="switchTextFee:" destination="x1y-oG-aGm" eventType="editingDidBegin" id="dg2-v3-gvA"/>
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.6560784314" blue="0.71527347779999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GfM-K7-ugQ" firstAttribute="top" secondItem="YC9-Gx-C2v" secondAttribute="top" constant="-350" id="4IM-n2-SAR"/>
-                            <constraint firstItem="GfM-K7-ugQ" firstAttribute="leading" secondItem="YC9-Gx-C2v" secondAttribute="leading" constant="47" id="Arp-qy-JVl"/>
-                            <constraint firstItem="YC9-Gx-C2v" firstAttribute="bottom" secondItem="GJf-uZ-0P0" secondAttribute="bottom" constant="275" id="RCB-W4-HvO"/>
-                            <constraint firstItem="GJf-uZ-0P0" firstAttribute="leading" secondItem="YC9-Gx-C2v" secondAttribute="leading" constant="91" id="bZe-u4-ii4"/>
-                            <constraint firstItem="YC9-Gx-C2v" firstAttribute="trailing" secondItem="GfM-K7-ugQ" secondAttribute="trailing" constant="47" id="cWC-d5-tDY"/>
-                            <constraint firstItem="YC9-Gx-C2v" firstAttribute="trailing" secondItem="GJf-uZ-0P0" secondAttribute="trailing" constant="91" id="maK-84-P1R"/>
+                            <constraint firstItem="cfM-lz-eoR" firstAttribute="trailing" secondItem="2uH-6j-OSh" secondAttribute="trailing" constant="91" id="3gZ-Cn-OB5"/>
+                            <constraint firstItem="cfM-lz-eoR" firstAttribute="bottom" secondItem="2uH-6j-OSh" secondAttribute="bottom" constant="270" id="9wJ-DD-n6p"/>
+                            <constraint firstItem="2uH-6j-OSh" firstAttribute="leading" secondItem="cfM-lz-eoR" secondAttribute="leading" constant="91" id="ThK-O6-N6l"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="YC9-Gx-C2v"/>
+                        <viewLayoutGuide key="safeArea" id="cfM-lz-eoR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fml-pF-srb">
-                        <barButtonItem key="backBarButtonItem" title=" " id="dea-v9-vzn"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="ur5-bq-HIY"/>
+                    <navigationItem key="navigationItem" id="Og4-dc-TW2">
+                        <barButtonItem key="backBarButtonItem" title=" " id="KPG-rf-Nzn"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="continueButton" destination="GJf-uZ-0P0" id="58r-d6-Dib"/>
-                        <outlet property="debtFieldKaede" destination="h1y-x1-0Nh" id="6it-fk-hnA"/>
-                        <outlet property="questionLabel" destination="GfM-K7-ugQ" id="nku-K7-mIZ"/>
-                        <outlet property="upperConst" destination="4IM-n2-SAR" id="r44-dc-0ZE"/>
+                        <outlet property="button" destination="2uH-6j-OSh" id="UID-kf-5ti"/>
+                        <outlet property="buttonFromBottom" destination="9wJ-DD-n6p" id="P5k-PQ-kKh"/>
+                        <outlet property="kaedeFeeField" destination="VXP-Hm-Im9" id="dHz-Pt-pfR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A0q-qL-c7m" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eqe-D6-h5W" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="78"/>
+            <point key="canvasLocation" x="-143.19999999999999" y="77.58620689655173"/>
         </scene>
     </scenes>
     <resources>
         <image name="icons8-calculator-30" width="67.5" height="67.5"/>
         <image name="icons8-settings-30" width="67.5" height="67.5"/>
-        <namedColor name="macColor">
-            <color red="0.41600000858306885" green="0.62000000476837158" blue="0.85100001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
