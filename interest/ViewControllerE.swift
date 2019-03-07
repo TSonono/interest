@@ -32,7 +32,7 @@ class ViewControllerE: UIViewController {
         
         addDoneButtonOnKeyboard()
         //debtField.textAlignment = .center
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.debtFieldKaede.becomeFirstResponder()
         }
         
@@ -84,6 +84,16 @@ class ViewControllerE: UIViewController {
     
     @objc func doneButtonAction() {
         self.debtFieldKaede.resignFirstResponder()
+    }
+    
+    @IBAction func switchTextFee(_ sender: KaedeTextField) {
+        debtFieldKaede.placeholder = "kr"
+    }
+    
+    @IBAction func backTextFee(_ sender: KaedeTextField) {
+        if ((debtFieldKaede.text?.isEmpty)!) {
+            debtFieldKaede.placeholder = "Loan amount"
+        }
     }
 
 }

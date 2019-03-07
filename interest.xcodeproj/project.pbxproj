@@ -13,6 +13,7 @@
 		2C694BA3200D0F6200EB9096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C694BA2200D0F6200EB9096 /* Assets.xcassets */; };
 		2C694BA6200D0F6200EB9096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C694BA4200D0F6200EB9096 /* LaunchScreen.storyboard */; };
 		2C694BB4200D3AB500EB9096 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C694BB3200D3AB500EB9096 /* ViewController2.swift */; };
+		3A1CA450223100FA006F69CF /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1CA44F223100FA006F69CF /* NavigationController.swift */; };
 		3A360EE7222E5C8200652D99 /* ViewControllerE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A360EE6222E5C8200652D99 /* ViewControllerE.swift */; };
 		6CCC098C92AB3322A9ADA1D9 /* Pods_interest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9930DB85F529382E5375B5 /* Pods_interest.framework */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		2D9930DB85F529382E5375B5 /* Pods_interest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_interest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BC6B3B89AB8C955FE15807 /* Pods-interest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interest.release.xcconfig"; path = "Target Support Files/Pods-interest/Pods-interest.release.xcconfig"; sourceTree = "<group>"; };
 		39F8EE2B3E78E47F3866CEC6 /* Pods-interest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interest.debug.xcconfig"; path = "Target Support Files/Pods-interest/Pods-interest.debug.xcconfig"; sourceTree = "<group>"; };
+		3A1CA44F223100FA006F69CF /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		3A360EE6222E5C8200652D99 /* ViewControllerE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerE.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				2C694BA4200D0F6200EB9096 /* LaunchScreen.storyboard */,
 				2C694BA7200D0F6200EB9096 /* Info.plist */,
 				2C694BB3200D3AB500EB9096 /* ViewController2.swift */,
+				3A1CA44F223100FA006F69CF /* NavigationController.swift */,
 			);
 			path = interest;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			files = (
 				3A360EE7222E5C8200652D99 /* ViewControllerE.swift in Sources */,
 				2C694B9E200D0F6200EB9096 /* ViewController.swift in Sources */,
+				3A1CA450223100FA006F69CF /* NavigationController.swift in Sources */,
 				2C694B9C200D0F6200EB9096 /* AppDelegate.swift in Sources */,
 				2C694BB4200D3AB500EB9096 /* ViewController2.swift in Sources */,
 			);

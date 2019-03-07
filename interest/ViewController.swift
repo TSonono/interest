@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         
         addDoneButtonOnKeyboard()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { //Delay because otherwise the keyboard will not load
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { //Delay because otherwise the keyboard will not load
             self.kaedeFeeField.becomeFirstResponder()
         }
             // show keyboard directly by default
@@ -72,6 +72,27 @@ class ViewController: UIViewController {
             button.isHidden = false
         }
     }
+    
+    @IBAction func switchTextFee(_ sender: KaedeTextField) {
+        kaedeFeeField.placeholder = "kr"
+    }
+    
+    @IBAction func backTextFee(_ sender: KaedeTextField) {
+        if ((kaedeFeeField.text?.isEmpty)!) {
+        kaedeFeeField.placeholder = "Fees"
+        }
+    }
+    
+    @IBAction func switchTextInterest(_ sender: KaedeTextField) {
+        testKaede.placeholder = "%"
+    }
+    
+    @IBAction func backTextInterest(_ sender: KaedeTextField) {
+        if ((testKaede.text?.isEmpty)!) {
+            testKaede.placeholder = "Interest"
+        }
+    }
+    
     
     
     @IBAction func decOrNo(_ sender: UITextField) {

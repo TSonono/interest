@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Interest-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest [%]" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQN-xa-x7q" customClass="KaedeTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQN-xa-x7q" customClass="KaedeTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="0.0" y="364" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96078431372549022" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,11 +58,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="backTextInterest:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="rwX-uk-fSI"/>
                                     <action selector="decOrNo:" destination="BYZ-38-t0r" eventType="editingChanged" id="hsT-q4-SIb"/>
                                     <action selector="hideButton:" destination="BYZ-38-t0r" eventType="editingChanged" id="Kxd-YV-x6m"/>
+                                    <action selector="switchTextInterest:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="hHv-AZ-DDD"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Monthly fee" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZN-eq-XMB" customClass="KaedeTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fees" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZN-eq-XMB" customClass="KaedeTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="0.0" y="316" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,7 +77,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="backTextFee:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="9TX-8g-8Mn"/>
                                     <action selector="hideButton:" destination="BYZ-38-t0r" eventType="editingChanged" id="Wbq-pt-X4d"/>
+                                    <action selector="switchTextFee:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="ZCN-bI-CfI"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -91,7 +95,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="4kd-I9-zSj"/>
-                    <navigationItem key="navigationItem" title="Interest" id="oh8-jP-Z5d">
+                    <navigationItem key="navigationItem" id="oh8-jP-Z5d">
                         <barButtonItem key="backBarButtonItem" title=" " id="ID9-4D-Ovk"/>
                     </navigationItem>
                     <connections>
@@ -127,7 +131,6 @@
         <!--Settings-->
         <scene sceneID="KAI-Eh-4yr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hhz-e2-JY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RfK-NH-vtO" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBA-1Q-wye">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -146,13 +149,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="icons8-settings-30" id="45c-Z6-Z0f"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhz-e2-JY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-951.20000000000005" y="-853.44827586206895"/>
         </scene>
         <!-- Calculate-->
         <scene sceneID="Sw9-xa-rI8">
             <objects>
-                <navigationController id="t5f-qT-jkD" sceneMemberID="viewController">
+                <navigationController id="t5f-qT-jkD" customClass="NavigationController" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="icons8-calculator-30" id="hkg-Bj-mw3">
                         <string key="title" base64-UTF8="YES">
 EENhbGN1bGF0ZQ
@@ -161,6 +165,7 @@ EENhbGN1bGF0ZQ
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wzB-jh-vYG">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Cj-vJ-khm"/>
@@ -170,7 +175,7 @@ EENhbGN1bGF0ZQ
             </objects>
             <point key="canvasLocation" x="-831" y="78"/>
         </scene>
-        <!--View Controller2-->
+        <!--Result-->
         <scene sceneID="jsC-zQ-ByB">
             <objects>
                 <viewController id="IgW-a2-uoF" customClass="ViewController2" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
@@ -178,14 +183,6 @@ EENhbGN1bGF0ZQ
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="rQJ-Tb-Hha" userLabel="Background">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OMO-ry-kI5" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="101" width="343" height="387"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SH1-h0-Vqg" customClass="Slider" customModule="fluid_slider">
                                 <rect key="frame" x="29" y="651" width="317" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -194,14 +191,6 @@ EENhbGN1bGF0ZQ
                                     <action selector="sliderMoves:" destination="IgW-a2-uoF" eventType="valueChanged" id="fQo-4M-BYM"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Years Ahead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJl-RS-HdS">
-                                <rect key="frame" x="125" y="721" width="125" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRP-lw-5sR">
                                 <rect key="frame" x="192" y="542" width="167" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -230,16 +219,24 @@ EENhbGN1bGF0ZQ
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Years Ahead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJl-RS-HdS">
+                                <rect key="frame" x="125" y="597" width="125" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OMO-ry-kI5" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="50" width="343" height="428"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="rQJ-Tb-Hha" secondAttribute="trailing" id="Cce-AK-IiX"/>
-                            <constraint firstItem="rQJ-Tb-Hha" firstAttribute="top" secondItem="FzU-k0-GGv" secondAttribute="top" id="DoN-Wi-TTK"/>
-                            <constraint firstItem="rQJ-Tb-Hha" firstAttribute="leading" secondItem="FzU-k0-GGv" secondAttribute="leading" id="nGs-SC-HQN"/>
-                            <constraint firstAttribute="bottom" secondItem="rQJ-Tb-Hha" secondAttribute="bottom" id="tlI-Ij-tDu"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="m74-7w-eth"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Result" id="ei4-wY-ssO"/>
                     <connections>
                         <outlet property="debtLabel" destination="4ZE-bf-9E4" id="A7y-Ib-gan"/>
                         <outlet property="label" destination="hJl-RS-HdS" id="aW0-jR-8IS"/>
@@ -250,9 +247,9 @@ EENhbGN1bGF0ZQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRJ-D6-X2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1575" y="78"/>
+            <point key="canvasLocation" x="1573.5999999999999" y="77.58620689655173"/>
         </scene>
-        <!--Debt-->
+        <!--View ControllerE-->
         <scene sceneID="TBj-Qk-gk6">
             <objects>
                 <viewController id="JEE-Qr-TrE" customClass="ViewControllerE" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
@@ -286,7 +283,7 @@ EENhbGN1bGF0ZQ
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Debt [SEK]" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1y-x1-0Nh" customClass="KaedeTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loan amount" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1y-x1-0Nh" customClass="KaedeTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="0.0" y="364" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -299,7 +296,9 @@ EENhbGN1bGF0ZQ
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="backTextFee:" destination="JEE-Qr-TrE" eventType="editingDidEnd" id="gcp-m5-o8N"/>
                                     <action selector="hideButton:" destination="JEE-Qr-TrE" eventType="editingChanged" id="9hp-bH-QfJ"/>
+                                    <action selector="switchTextFee:" destination="JEE-Qr-TrE" eventType="editingDidBegin" id="43j-OL-VFb"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -314,7 +313,7 @@ EENhbGN1bGF0ZQ
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YC9-Gx-C2v"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Debt" id="Fml-pF-srb">
+                    <navigationItem key="navigationItem" id="Fml-pF-srb">
                         <barButtonItem key="backBarButtonItem" title=" " id="dea-v9-vzn"/>
                     </navigationItem>
                     <connections>
@@ -330,9 +329,8 @@ EENhbGN1bGF0ZQ
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1125" height="2436"/>
-        <image name="icons8-calculator-30" width="22.5" height="22.5"/>
-        <image name="icons8-settings-30" width="22.5" height="22.5"/>
+        <image name="icons8-calculator-30" width="67.5" height="67.5"/>
+        <image name="icons8-settings-30" width="67.5" height="67.5"/>
         <namedColor name="macColor">
             <color red="0.41600000858306885" green="0.62000000476837158" blue="0.85100001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
