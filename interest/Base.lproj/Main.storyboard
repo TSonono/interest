@@ -92,7 +92,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="t5f-qT-jkD" kind="relationship" relationship="viewControllers" id="mD0-iN-qTW"/>
-                        <segue destination="RfK-NH-vtO" kind="relationship" relationship="viewControllers" id="5v5-iH-B90"/>
+                        <segue destination="bZ7-o2-j3r" kind="relationship" relationship="viewControllers" id="YDV-CK-b0P"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIZ-4S-3da" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhz-e2-JY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1382" y="-1003"/>
+            <point key="canvasLocation" x="98" y="-721"/>
         </scene>
         <!--Räkna!-->
         <scene sceneID="Sw9-xa-rI8">
@@ -365,6 +365,52 @@
             </objects>
             <point key="canvasLocation" x="729" y="78"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="oN8-4Q-42p">
+            <objects>
+                <tableViewController id="30b-43-NEB" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KRd-5i-vdv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KXd-l1-12e">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KXd-l1-12e" id="0eJ-xc-CTO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="30b-43-NEB" id="2wR-Qb-W05"/>
+                            <outlet property="delegate" destination="30b-43-NEB" id="O7n-LS-hOi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="nVo-2D-f26"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iTp-GE-ZHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="-721"/>
+        </scene>
+        <!--Inställningar-->
+        <scene sceneID="lE9-0f-HOv">
+            <objects>
+                <navigationController id="bZ7-o2-j3r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Inställningar" image="Icons8-calculator-30" id="bb8-g2-1eO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NUQ-66-uQP">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="30b-43-NEB" kind="relationship" relationship="rootViewController" id="X4y-WC-sFS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5DE-0b-mEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-965" y="-721"/>
+        </scene>
         <!--Fees-->
         <scene sceneID="P7F-0V-5DY">
             <objects>
@@ -437,6 +483,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icons8-calculator-30" width="16" height="16"/>
         <image name="icons8-calculator-30" width="67.5" height="67.5"/>
         <image name="icons8-settings-30" width="67.5" height="67.5"/>
     </resources>

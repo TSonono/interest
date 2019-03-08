@@ -18,6 +18,7 @@ var fees:Double!
 
 class ViewFees: UIViewController {
     
+    var timer = Timer()
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var kaedeFeeField: KaedeTextField!
     @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
@@ -26,6 +27,10 @@ class ViewFees: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
+            self.scheduledTimerWithTimeInterval()
+        }
         
         button.layer.cornerRadius = 20// Make button have an elliptic shape
         button.isHidden = true
@@ -45,6 +50,15 @@ class ViewFees: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateCounting(){
+        button.pulsate()
     }
     
     
@@ -92,6 +106,7 @@ class ViewFees: UIViewController {
     
     @IBAction func setFees(_ sender: Any) {
         fees = Double(kaedeFeeField.text!)
+        timer.invalidate()
     }
     
     func addDoneButtonOnKeyboard() {

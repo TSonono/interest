@@ -22,16 +22,21 @@ extension UITextField {         //Ensures no ability to paste in the text fields
 
 class ViewController: UIViewController {
     
+    var timer = Timer()
+    
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
     @IBOutlet weak var testKaede: KaedeTextField!
     
     var interestConvert:String!
-    var pulsateTrack:Int! = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
+            self.scheduledTimerWithTimeInterval()
+        }
         
         button.layer.cornerRadius = 20  // Make button have an elliptic shape
         button.isHidden = true
@@ -53,6 +58,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateCounting(){
+        button.pulsate()
+    }
+    
 
     @IBAction func hideButton(_ sender: UITextField) {            //Continue button only shows when text field not empty
         if (testKaede.text?.isEmpty == true || sender.text == ",") {
@@ -60,10 +74,6 @@ class ViewController: UIViewController {
         }
         else {
             button.isHidden = false
-            pulsateTrack += 1
-            if (pulsateTrack % 6 == 0) {
-                button.pulsate()
-            }
         }
     }
     
@@ -101,6 +111,7 @@ class ViewController: UIViewController {
         interestConvert = testKaede.text!
         interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
         interest = Double(interestConvert)!
+        timer.invalidate()
     }
     
     func addDoneButtonOnKeyboard() {

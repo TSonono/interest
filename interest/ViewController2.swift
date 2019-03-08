@@ -53,7 +53,10 @@ class ViewController2: UIViewController {
         
         // Do any additional setup after loading the view.
         pieChart.holeColor = pieChart.backgroundColor
-        scheduledTimerWithTimeInterval()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
+            self.scheduledTimerWithTimeInterval()
+        }
+        
 
         
         interestRate = interest
@@ -122,11 +125,6 @@ class ViewController2: UIViewController {
         chartDataSet.colors = colors as! [NSUIColor]
         
         pieChart.data = chartData
-        
-        
-        //print("amort:", amortDataEntry.value)
-        //print("interest:", interestDataEntry.value)
-        //print("tenant fee:", feeDataEntry.value)
     }
     
     func whenDebtGone(debt:Int) -> Double {
@@ -164,7 +162,6 @@ class ViewController2: UIViewController {
 
     
     @IBAction func sliderMoves(_ sender: Slider) {
-        //print(pieChart.rotationAngle)
         changeValues()
     }
     
