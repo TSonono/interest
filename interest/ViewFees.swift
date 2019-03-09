@@ -19,6 +19,10 @@ var fees:Double!
 class ViewFees: UIViewController {
     
     var timer = Timer()
+    var initialTextColor:UIColor!
+    
+    
+    @IBOutlet weak var kaedeToBottom: NSLayoutConstraint!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var kaedeFeeField: KaedeTextField!
     @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
@@ -26,7 +30,8 @@ class ViewFees: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        initialTextColor = kaedeFeeField.textColor
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
             self.scheduledTimerWithTimeInterval()
@@ -71,21 +76,56 @@ class ViewFees: UIViewController {
         }
     }
     
-    @IBAction func buttonDrop(_ sender: Any) {
-        self.buttonFromBottom.constant = 150
+    @IBAction func buttonDrop(_ sender: KaedeTextField) {
+        if (sender.text! == "Avgift") {
+            self.kaedeToBottom.constant = 0
+        }
+        else {
+            self.buttonFromBottom.constant = 120
+        }
+        UIView.animate(withDuration: 0.45, delay: 0.15, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     @IBAction func buttonRise(_ sender: Any) {
-        self.buttonFromBottom.constant = 270
+        self.buttonFromBottom.constant = 325
+        
+        self.kaedeToBottom.constant = 440
+
+    }
+    
+    @IBAction func testKeepText(_ sender: KaedeTextField) {
+        if (sender.text?.contains("A") == true || sender.text?.contains("v") == true || sender.text?.contains("g") == true || sender.text?.contains("i") == true || sender.text?.contains("f") == true || sender.text?.contains("t") == true) {
+            if let selectedRange = sender.selectedTextRange {
+                //This is to detect the cursor position. From stackoverflow
+                let cursorPosition = sender.offset(from: sender.beginningOfDocument, to: selectedRange.start)
+                sender.text = String(sender.text![cursorPosition-1])
+                sender.textColor = UIColor.black
+            }
+        }
+        else if (sender.text?.isEmpty == true) {
+            sender.text = "Avgift"
+            sender.textColor = initialTextColor
+            sender.selectedTextRange = sender.textRange(from: sender.beginningOfDocument, to: sender.beginningOfDocument)
+        }
     }
     
     @IBAction func switchTextFee(_ sender: KaedeTextField) {
-        kaedeFeeField.placeholder = "kr"
+        if (sender.text == "Avgift") {
+            sender.selectedTextRange = sender.textRange(from: sender.beginningOfDocument, to: sender.beginningOfDocument)
+        }
+        sender.placeholder = "kr"
     }
     
     @IBAction func backTextFee(_ sender: KaedeTextField) {
-        if ((kaedeFeeField.text?.isEmpty)!) {
-            kaedeFeeField.placeholder = ""
+        if ((sender.text?.isEmpty)!) {
+            sender.placeholder = ""
+            sender.text = "Avgift"
+            sender.textColor = initialTextColor
+        }
+        else if (sender.text == "Avgift") {
+            sender.placeholder = ""
         }
     }
     

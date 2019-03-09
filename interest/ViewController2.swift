@@ -57,8 +57,6 @@ class ViewController2: UIViewController {
             self.scheduledTimerWithTimeInterval()
         }
         
-
-        
         interestRate = interest
         sliderLimit = whenDebtGone(debt: loanDebt)
         
