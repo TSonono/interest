@@ -52,7 +52,12 @@ class ViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.labelToTop.constant = -300
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.inputField.resignFirstResponder()
     }
     
     override func viewDidLoad() {
@@ -130,11 +135,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func raiseView(_ sender: UITextField) {
-        self.view.frame.origin.y -= 90
+        self.view.frame.origin.y = -25
     }
     
     @IBAction func lowerView(_ sender: UITextField) {
-        self.view.frame.origin.y += 90
+        self.view.frame.origin.y = 88
     }
     
     
