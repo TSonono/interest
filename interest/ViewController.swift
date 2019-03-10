@@ -8,17 +8,11 @@
 
 import UIKit
 
-let outOfBoundsTop = -300
+let modelName = UIDevice.modelName
+let outOfBoundsTop = -500
 
 // Global Variables:
 var interest:Double!
-
-extension UITextField {         //Ensures no ability to paste in the text fields
-    
-    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return action == #selector(UIResponderStandardEditActions.cut) || action == #selector(UIResponderStandardEditActions.copy)
-    }
-}
 
 class ViewController: UIViewController {
     
@@ -26,6 +20,10 @@ class ViewController: UIViewController {
     
     var initialOriginY:CGFloat!
     var interestConvert:String!
+    
+    
+    @IBOutlet weak var fieldToTopLabel: NSLayoutConstraint!
+    @IBOutlet weak var percentToTopLabel: NSLayoutConstraint!
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var labelToTop: NSLayoutConstraint!
@@ -52,6 +50,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (modelName.contains("5") || modelName.contains("SE")) {
+            fieldToTopLabel.constant = 150
+            percentToTopLabel.constant = 150
+        }
+        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "Simulator iPhone 8") {
+            fieldToTopLabel.constant = 230
+            percentToTopLabel.constant = 230
+        }
+        else if (modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "Simulator iPhone 8 Plus") {
+            fieldToTopLabel.constant = 190
+            percentToTopLabel.constant = 190
+        }
+        
         buttonTwo.isHidden = true
         addDoneButtonOnKeyboard()
     
@@ -59,7 +70,7 @@ class ViewController: UIViewController {
         buttonToBottom.isActive = false
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { //Delay because otherwise the keyboard will not load
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             self.inputField.becomeFirstResponder()
         }
     }
@@ -120,8 +131,7 @@ class ViewController: UIViewController {
     
     @IBAction func raiseView(_ sender: UITextField) {
         initialOriginY = self.view.frame.origin.y
-        print(initialOriginY)
-        self.view.frame.origin.y = -25
+        self.view.frame.origin.y = initialOriginY - 150
     }
     
     @IBAction func lowerView(_ sender: UITextField) {

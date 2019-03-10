@@ -72,9 +72,7 @@ class VideoViewController: UIViewController {
         self.videoView.layer.addSublayer(newLayer)
         newLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         
-        self.videoView.layer.addSublayer(newLayer)
-        newLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        
+        player.isMuted = true
         self.player.play()
         
         self.videoView.bringSubviewToFront(continueButton)
