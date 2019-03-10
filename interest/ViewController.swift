@@ -8,9 +8,10 @@
 
 import UIKit
 
+let outOfBoundsTop = -300
+
 // Global Variables:
 var interest:Double!
-
 
 extension UITextField {         //Ensures no ability to paste in the text fields
     
@@ -23,8 +24,8 @@ class ViewController: UIViewController {
     
     var timer = Timer()
     
-    var initialTextColor:UIColor!
-    
+    var initialOriginY:CGFloat!
+    var interestConvert:String!
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var labelToTop: NSLayoutConstraint!
@@ -33,11 +34,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonTwo: UIButton!
     @IBOutlet weak var inputField: UITextField!
     
-    var interestConvert:String!
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.labelToTop.constant = -300
+        self.labelToTop.constant = CGFloat(outOfBoundsTop)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,18 +49,9 @@ class ViewController: UIViewController {
         scheduledTimerWithTimeInterval()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.inputField.resignFirstResponder()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         buttonTwo.isHidden = true
         addDoneButtonOnKeyboard()
     
@@ -72,18 +62,12 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { //Delay because otherwise the keyboard will not load
             self.inputField.becomeFirstResponder()
         }
-        
-        
     }
+    
     //Ensures button is still circular with aspect ratio constraint on different screen sizes:
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         buttonTwo.layer.cornerRadius = buttonTwo.frame.height / 2.0
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func scheduledTimerWithTimeInterval(){
@@ -135,11 +119,13 @@ class ViewController: UIViewController {
     
     
     @IBAction func raiseView(_ sender: UITextField) {
+        initialOriginY = self.view.frame.origin.y
+        print(initialOriginY)
         self.view.frame.origin.y = -25
     }
     
     @IBAction func lowerView(_ sender: UITextField) {
-        self.view.frame.origin.y = 88
+        self.view.frame.origin.y = initialOriginY
     }
     
     
@@ -148,6 +134,7 @@ class ViewController: UIViewController {
         interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
         interest = Double(interestConvert)!
         timer.invalidate()
+        self.inputField.resignFirstResponder()
     }
     
     func addDoneButtonOnKeyboard() {
