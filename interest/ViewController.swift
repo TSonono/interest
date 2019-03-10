@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TextFieldEffects
 
 // Global Variables:
 var interest:Double!
@@ -26,40 +25,55 @@ class ViewController: UIViewController {
     
     var initialTextColor:UIColor!
     
-    @IBOutlet weak var kaedeToBottom: NSLayoutConstraint!
-    @IBOutlet weak var buttonToBottom: NSLayoutConstraint!
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var labelToTop: NSLayoutConstraint!
+    @IBOutlet var buttonToField: NSLayoutConstraint!
+    @IBOutlet var buttonToBottom: NSLayoutConstraint!
     @IBOutlet weak var buttonTwo: UIButton!
-    @IBOutlet weak var testKaede: KaedeTextField!
+    @IBOutlet weak var inputField: UITextField!
     
     var interestConvert:String!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.labelToTop.constant = -300
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.scheduledTimerWithTimeInterval()
+        self.labelToTop.constant = 0
+        UIView.animate(withDuration: 1.65, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
         
-        
+        scheduledTimerWithTimeInterval()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.labelToTop.constant = -300
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        testKaede.borderStyle = .none
-        
-        initialTextColor = testKaede.textColor
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
-            //self.scheduledTimerWithTimeInterval()
-        }
-
         buttonTwo.isHidden = true
-        
         addDoneButtonOnKeyboard()
+    
+        buttonToBottom.constant = 50
+        buttonToBottom.isActive = false
+        
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { //Delay because otherwise the keyboard will not load
-            self.testKaede.becomeFirstResponder()
+            self.inputField.becomeFirstResponder()
         }
         
         
+    }
+    //Ensures button is still circular with aspect ratio constraint on different screen sizes:
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        buttonTwo.layer.cornerRadius = buttonTwo.frame.height / 2.0
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,31 +92,28 @@ class ViewController: UIViewController {
     
 
     @IBAction func hideButton(_ sender: UITextField) {            //Continue button only shows when text field not empty
-        if (testKaede.text?.isEmpty == true || sender.text == ",") {
+        if (sender.text?.isEmpty == true || sender.text == ",") {
             buttonTwo.isHidden = true
         }
-        else if (testKaede.text! == "Ränta") {
-            buttonTwo.isHidden = true
-            }
         else {
             buttonTwo.isHidden = false
         }
     }
     
     @IBAction func buttonDrop(_ sender: Any) {
-        if (testKaede.text! != "Ränta") {
-            self.buttonToBottom.constant = 55
-        }
-        UIView.animate(withDuration: 0.45, delay: 0.15, animations: {
+        buttonToField.isActive = false
+        buttonToBottom.isActive = true
+        //self.buttonToField.constant = 250
+        UIView.animate(withDuration: 0.45, delay: 0.0, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
         
     }
     
     @IBAction func buttonRise(_ sender: Any) {
-        //buttonTwo.frame.origin.y = 266
-        //self.kaedeToBottom.constant = -440
-        self.buttonToBottom.constant = 305
+        buttonToField.isActive = true
+        buttonToBottom.isActive = false
+        //self.buttonToField.constant = 25
     }
     
     @IBAction func decOrNo(_ sender: UITextField) {
@@ -117,43 +128,18 @@ class ViewController: UIViewController {
         sender.reloadInputViews()
     }
     
-    @IBAction func testKeepText(_ sender: KaedeTextField) {
-        if (sender.text?.contains("R") == true || sender.text?.contains("ä") == true || sender.text?.contains("n") == true || sender.text?.contains("t") == true || sender.text?.contains("a") == true) {
-            if let selectedRange = sender.selectedTextRange {
-                //This is to detect the cursor position. From stackoverflow
-                let cursorPosition = sender.offset(from: sender.beginningOfDocument, to: selectedRange.start)
-                sender.text = String(sender.text![cursorPosition-1])
-                sender.textColor = UIColor.black
-            }
-        }
-        else if (sender.text?.isEmpty == true) {
-            sender.text = "Ränta"
-            sender.textColor = initialTextColor
-            sender.selectedTextRange = sender.textRange(from: sender.beginningOfDocument, to: sender.beginningOfDocument)
-        }
-    }
-    @IBAction func switchTextFee(_ sender: KaedeTextField) {
-        if (sender.text == "Ränta") {
-            sender.selectedTextRange = sender.textRange(from: sender.beginningOfDocument, to: sender.beginningOfDocument)
-        }
-        sender.placeholder = "%"
+    
+    @IBAction func raiseView(_ sender: UITextField) {
+        self.view.frame.origin.y -= 90
     }
     
-    @IBAction func backTextFee(_ sender: KaedeTextField) {
-        if ((sender.text?.isEmpty)!) {
-            sender.placeholder = ""
-            sender.text = "Ränta"
-            sender.textColor = initialTextColor
-        }
-        else if (sender.text == "Ränta") {
-            sender.placeholder = ""
-        }
+    @IBAction func lowerView(_ sender: UITextField) {
+        self.view.frame.origin.y += 90
     }
-    
     
     
     @IBAction func setInterest(_ sender: Any) {
-        interestConvert = testKaede.text!
+        interestConvert = inputField.text!
         interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
         interest = Double(interestConvert)!
         timer.invalidate()
@@ -172,11 +158,11 @@ class ViewController: UIViewController {
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         
-        self.testKaede.inputAccessoryView = doneToolbar
+        self.inputField.inputAccessoryView = doneToolbar
     }
     
     @objc func doneButtonAction() {
-        self.testKaede.resignFirstResponder()
+        self.inputField.resignFirstResponder()
     }
 }
 

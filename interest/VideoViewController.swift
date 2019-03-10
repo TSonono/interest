@@ -56,7 +56,6 @@ class VideoViewController: UIViewController {
     
     @objc func shutItDown() {
         self.newLayer.removeFromSuperlayer()
-        //NotificationCenter.default.removeObserver(self)
     }
     
     override var prefersStatusBarHidden: Bool {
