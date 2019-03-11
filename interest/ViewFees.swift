@@ -10,7 +10,7 @@ import UIKit
 
 
 // Global Variables:
-var fees:Double!
+var fees:Int!
 
 class ViewFees: UIViewController {
     
@@ -125,7 +125,7 @@ class ViewFees: UIViewController {
     
     
     @IBAction func setFees(_ sender: Any) {
-        fees = Double(inputField.text!)
+        fees = Int(inputField.text!)
         timer.invalidate()
         self.inputField.resignFirstResponder()
     }
