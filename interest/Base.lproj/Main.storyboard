@@ -71,7 +71,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="setInterest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPu-PM-fZo"/>
-                                    <segue destination="oek-GZ-Ick" kind="show" id="NgK-QR-NIT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -107,6 +106,7 @@
                         <outlet property="percentToTopLabel" destination="Wgv-vX-qkY" id="x5M-uI-HCs"/>
                         <outlet property="questionLabel" destination="WNh-yX-aes" id="szG-xE-Af9"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="kWK-uf-NSu"/>
+                        <segue destination="oek-GZ-Ick" kind="show" identifier="toFees" id="TaU-Va-yk8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -253,7 +253,6 @@
                                 </state>
                                 <connections>
                                     <action selector="setDebt:" destination="JEE-Qr-TrE" eventType="touchUpInside" id="l8g-64-FAU"/>
-                                    <segue destination="IgW-a2-uoF" kind="show" id="vAZ-hV-QEI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tips: Lämna fältet tomt om du planerar att ta lån!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwC-Tv-kd4">
@@ -309,6 +308,7 @@
                         <outlet property="continueButton" destination="GJf-uZ-0P0" id="58r-d6-Dib"/>
                         <outlet property="debtFieldKaede" destination="h1y-x1-0Nh" id="6it-fk-hnA"/>
                         <outlet property="tipLabel" destination="hwC-Tv-kd4" id="Ref-dT-yhh"/>
+                        <segue destination="IgW-a2-uoF" kind="show" identifier="toResult" id="Hjn-Tn-Uwc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0q-qL-c7m" sceneMemberID="firstResponder"/>
@@ -332,7 +332,6 @@
                                 </state>
                                 <connections>
                                     <action selector="setDebt:" destination="jKu-fC-r4L" eventType="touchUpInside" id="M5C-WH-oST"/>
-                                    <segue destination="JEE-Qr-TrE" kind="show" id="A07-uP-GqD"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-g2-cUS" customClass="KaedeTextField" customModule="TextFieldEffects">
@@ -378,6 +377,7 @@
                         <outlet property="buttonFromBottom" destination="saT-Nf-MEd" id="ouZ-Pk-qQa"/>
                         <outlet property="continueButton" destination="pBp-sr-SX7" id="w6n-7d-rGv"/>
                         <outlet property="debtFieldKaede" destination="4gF-g2-cUS" id="1mu-Wh-tMh"/>
+                        <segue destination="JEE-Qr-TrE" kind="show" identifier="toDebt" id="bPo-2r-p7K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68Q-xh-tEC" sceneMemberID="firstResponder"/>
@@ -595,7 +595,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="setFees:" destination="oek-GZ-Ick" eventType="touchUpInside" id="VLx-md-nMV"/>
-                                    <segue destination="jKu-fC-r4L" kind="show" id="WuH-GZ-fjb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -631,6 +630,7 @@
                         <outlet property="percentToTopLabel" destination="tgP-XS-Zy2" id="Kqq-v5-dSz"/>
                         <outlet property="questionLabel" destination="sn0-NG-ZAh" id="IT0-ze-rdb"/>
                         <outlet property="view" destination="a25-a0-nbj" id="HBl-Gt-2kq"/>
+                        <segue destination="jKu-fC-r4L" kind="show" identifier="toLoanAmount" id="e4K-R9-KtN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOm-Ze-gpD" sceneMemberID="firstResponder"/>
@@ -645,6 +645,6 @@
         <image name="icons8-settings-30" width="67.5" height="67.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WuH-GZ-fjb"/>
+        <segue reference="e4K-R9-KtN"/>
     </inferredMetricsTieBreakers>
 </document>

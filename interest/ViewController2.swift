@@ -13,8 +13,9 @@ import Charts
 import fluid_slider
 
 class ViewController2: UIViewController {
+    var loanTerms = Terms()
     var timer = Timer()
-    let STARTING_FRACTION = 0.5
+    let STARTING_FRACTION = 0.5         // Starting place for slider
     let AMORTIZATION_RATE = 0.03
 
     @IBOutlet weak var pieChart: PieChartView!

@@ -14,7 +14,7 @@ var loanAmount:Int!
 
 class ViewControllerLoan: UIViewController {
 
-    
+    var loanTerms = Terms()
     
     @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
     @IBOutlet weak var continueButton: UIButton!
@@ -70,6 +70,7 @@ class ViewControllerLoan: UIViewController {
     
     @IBAction func setDebt(_ sender: Any) {
         loanAmount = Int(debtFieldKaede.text!)
+        performSegue(withIdentifier: "toDebt", sender: self)
     }
     
     func addDoneButtonOnKeyboard() {

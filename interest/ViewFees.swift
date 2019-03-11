@@ -19,6 +19,7 @@ class ViewFees: UIViewController {
     var initialOriginY:CGFloat!
     var interestConvert:String!
     
+    var loanTerms = Terms()
     
     @IBOutlet weak var fieldToTopLabel: NSLayoutConstraint!
     @IBOutlet weak var percentToTopLabel: NSLayoutConstraint!
@@ -47,6 +48,9 @@ class ViewFees: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(interest)
+        print(loanTerms.interest)
         
         if (modelName.contains("5") || modelName.contains("SE")) {
             fieldToTopLabel.constant = 150
@@ -128,6 +132,7 @@ class ViewFees: UIViewController {
         fees = Int(inputField.text!)
         timer.invalidate()
         self.inputField.resignFirstResponder()
+        performSegue(withIdentifier: "toLoanAmount", sender: self)
     }
     
     func addDoneButtonOnKeyboard() {

@@ -60,6 +60,13 @@ class VideoViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector:#selector(VideoViewController.runAgain), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is ViewController) {
+            let nextController = segue.destination as! ViewController
+            nextController.loanTerms = self.loanTerms
+        }
+    }
+    
     @objc func runAgain() {
         let t1 = CMTimeMake(value: 0, timescale: 100);
         player.seek(to: t1)

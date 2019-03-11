@@ -16,6 +16,7 @@ var loanDebt:Int!
 
 class ViewControllerE: UIViewController {
     
+    var loanTerms = Terms()
     
     @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
     @IBOutlet weak var tipLabel: UILabel!
@@ -128,6 +129,7 @@ class ViewControllerE: UIViewController {
         else {
             loanDebt = Int(debtFieldKaede.text!)
         }
+        performSegue(withIdentifier: "toResult", sender: self)
     }
     
     func addDoneButtonOnKeyboard() {

@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     var initialOriginY:CGFloat!
     var interestConvert:String!
     
+    var loanTerms = Terms()
+    
     
     @IBOutlet weak var fieldToTopLabel: NSLayoutConstraint!
     @IBOutlet weak var percentToTopLabel: NSLayoutConstraint!
@@ -39,6 +41,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.labelToTop.constant = 0
         UIView.animate(withDuration: 1.65, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: .curveEaseInOut, animations: {
             self.view.layoutIfNeeded()
@@ -79,6 +82,13 @@ class ViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         buttonTwo.layer.cornerRadius = buttonTwo.frame.height / 2.0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is ViewFees) {
+            let nextController = segue.destination as! ViewFees
+            nextController.loanTerms = self.loanTerms
+        }
     }
     
     func scheduledTimerWithTimeInterval(){
@@ -138,15 +148,6 @@ class ViewController: UIViewController {
         self.view.frame.origin.y = initialOriginY
     }
     
-    
-    @IBAction func setInterest(_ sender: Any) {
-        interestConvert = inputField.text!
-        interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
-        interest = Double(interestConvert)!
-        timer.invalidate()
-        self.inputField.resignFirstResponder()
-    }
-    
     func addDoneButtonOnKeyboard() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle       = UIBarStyle.default
@@ -165,6 +166,16 @@ class ViewController: UIViewController {
     
     @objc func doneButtonAction() {
         self.inputField.resignFirstResponder()
+    }
+    
+    @IBAction func setInterest(_ sender: Any) {
+        interestConvert = inputField.text!
+        interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
+        loanTerms.interest = Double(interestConvert)!
+        interest = Double(interestConvert)!
+        timer.invalidate()
+        self.inputField.resignFirstResponder()
+        performSegue(withIdentifier: "toFees", sender: self)
     }
 }
 
