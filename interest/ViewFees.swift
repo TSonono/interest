@@ -1,152 +1,133 @@
 //
-//  ViewFees.swift
+//  ViewController.swift
 //  interest
 //
-//  Created by Tofik Sonono on 2019-03-07.
-//  Copyright © 2019 Tofik Sonono. All rights reserved.
+//  Created by Tofik Sonono on 2018-01-15.
+//  Copyright © 2018 Tofik Sonono. All rights reserved.
 //
 
-
 import UIKit
-import TextFieldEffects
+
 
 // Global Variables:
-
-
 var fees:Double!
-
 
 class ViewFees: UIViewController {
     
     var timer = Timer()
-    var initialTextColor:UIColor!
+    
+    var initialOriginY:CGFloat!
+    var interestConvert:String!
     
     
-    @IBOutlet weak var kaedeToBottom: NSLayoutConstraint!
-    @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var kaedeFeeField: KaedeTextField!
-    @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
+    @IBOutlet weak var fieldToTopLabel: NSLayoutConstraint!
+    @IBOutlet weak var percentToTopLabel: NSLayoutConstraint!
     
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var labelToTop: NSLayoutConstraint!
+    @IBOutlet var buttonToField: NSLayoutConstraint!
+    @IBOutlet var buttonToBottom: NSLayoutConstraint!
+    @IBOutlet weak var buttonTwo: UIButton!
+    @IBOutlet weak var inputField: UITextField!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.labelToTop.constant = CGFloat(outOfBoundsTop)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.labelToTop.constant = 0
+        UIView.animate(withDuration: 1.65, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+        scheduledTimerWithTimeInterval()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initialTextColor = kaedeFeeField.textColor
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
-            self.scheduledTimerWithTimeInterval()
+        if (modelName.contains("5") || modelName.contains("SE")) {
+            fieldToTopLabel.constant = 150
+            percentToTopLabel.constant = 150
+        }
+        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "Simulator iPhone 8") {
+            fieldToTopLabel.constant = 230
+            percentToTopLabel.constant = 230
+        }
+        else if (modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "Simulator iPhone 8 Plus") {
+            fieldToTopLabel.constant = 190
+            percentToTopLabel.constant = 190
         }
         
-        button.layer.cornerRadius = 20// Make button have an elliptic shape
-        button.isHidden = true
-        
-        
+        buttonTwo.isHidden = true
         addDoneButtonOnKeyboard()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
-            self.kaedeFeeField.becomeFirstResponder()
-        }
-        // show keyboard directly by default
+        buttonToBottom.constant = 50
+        buttonToBottom.isActive = false
         
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.inputField.becomeFirstResponder()
+        }
     }
     
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //Ensures button is still circular with aspect ratio constraint on different screen sizes:
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        buttonTwo.layer.cornerRadius = buttonTwo.frame.height / 2.0
     }
     
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 3.25, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
     }
     
     @objc func updateCounting(){
-        button.pulsate()
+        buttonTwo.pulsate()
     }
     
     
     @IBAction func hideButton(_ sender: UITextField) {            //Continue button only shows when text field not empty
-        if (kaedeFeeField.text?.isEmpty == true) {
-            button.isHidden = true
+        if (sender.text?.isEmpty == true || sender.text == ",") {
+            buttonTwo.isHidden = true
         }
         else {
-            button.isHidden = false
+            buttonTwo.isHidden = false
         }
     }
     
-    @IBAction func buttonDrop(_ sender: KaedeTextField) {
-        if (sender.text! == "Avgift") {
-            self.kaedeToBottom.constant = 0
-        }
-        else {
-            self.buttonFromBottom.constant = 120
-        }
-        UIView.animate(withDuration: 0.45, delay: 0.15, animations: {
+    @IBAction func buttonDrop(_ sender: Any) {
+        buttonToField.isActive = false
+        buttonToBottom.isActive = true
+        //self.buttonToField.constant = 250
+        UIView.animate(withDuration: 0.45, delay: 0.0, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
+        
     }
     
     @IBAction func buttonRise(_ sender: Any) {
-        self.buttonFromBottom.constant = 325
-        
-        self.kaedeToBottom.constant = 440
-
+        buttonToField.isActive = true
+        buttonToBottom.isActive = false
+        //self.buttonToField.constant = 25
     }
     
-    @IBAction func testKeepText(_ sender: KaedeTextField) {
-        if (sender.text?.contains("A") == true || sender.text?.contains("v") == true || sender.text?.contains("g") == true || sender.text?.contains("i") == true || sender.text?.contains("f") == true || sender.text?.contains("t") == true) {
-            if let selectedRange = sender.selectedTextRange {
-                //This is to detect the cursor position. From stackoverflow
-                let cursorPosition = sender.offset(from: sender.beginningOfDocument, to: selectedRange.start)
-                sender.text = String(sender.text![cursorPosition-1])
-                sender.textColor = UIColor.black
-            }
-        }
-        else if (sender.text?.isEmpty == true) {
-            sender.text = "Avgift"
-            sender.textColor = initialTextColor
-            sender.selectedTextRange = sender.textRange(from: sender.beginningOfDocument, to: sender.beginningOfDocument)
-        }
+    @IBAction func raiseView(_ sender: UITextField) {
+        initialOriginY = self.view.frame.origin.y
+        self.view.frame.origin.y = initialOriginY - 150
     }
     
-    @IBAction func switchTextFee(_ sender: KaedeTextField) {
-        if (sender.text == "Avgift") {
-            sender.selectedTextRange = sender.textRange(from: sender.beginningOfDocument, to: sender.beginningOfDocument)
-        }
-        sender.placeholder = "kr"
+    @IBAction func lowerView(_ sender: UITextField) {
+        self.view.frame.origin.y = initialOriginY
     }
     
-    @IBAction func backTextFee(_ sender: KaedeTextField) {
-        if ((sender.text?.isEmpty)!) {
-            sender.placeholder = ""
-            sender.text = "Avgift"
-            sender.textColor = initialTextColor
-        }
-        else if (sender.text == "Avgift") {
-            sender.placeholder = ""
-        }
-    }
-    
-    
-    
-    
-    @IBAction func decOrNo(_ sender: UITextField) {
-        let cont = ","
-        let field = sender.text
-        if (field!.contains(cont)) {
-            sender.keyboardType = UIKeyboardType.numberPad
-        }
-        else {
-            sender.keyboardType = UIKeyboardType.decimalPad
-        }
-        sender.reloadInputViews()
-    }
     
     @IBAction func setFees(_ sender: Any) {
-        fees = Double(kaedeFeeField.text!)
+        fees = Double(inputField.text!)
         timer.invalidate()
+        self.inputField.resignFirstResponder()
     }
     
     func addDoneButtonOnKeyboard() {
@@ -162,14 +143,11 @@ class ViewFees: UIViewController {
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         
-        self.kaedeFeeField.inputAccessoryView = doneToolbar
-        
+        self.inputField.inputAccessoryView = doneToolbar
     }
     
     @objc func doneButtonAction() {
-        self.kaedeFeeField.resignFirstResponder()
+        self.inputField.resignFirstResponder()
     }
-    
 }
-
 

@@ -18,6 +18,7 @@ class VideoViewController: UIViewController {
     var path:URL!
     var newLayer:AVPlayerLayer!
 
+    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet var videoView: UIView!
     @IBOutlet weak var continueButton: UIButton!
@@ -77,22 +78,20 @@ class VideoViewController: UIViewController {
         
         self.videoView.bringSubviewToFront(continueButton)
         self.videoView.bringSubviewToFront(settingsButton)
+        
+        self.videoView.bringSubviewToFront(infoButton)
     }
     
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
     }
     
     @objc func updateCounting(){
         continueButton.pulsate()
         self.rotationAngle += 90.0
-        UIView.animate(withDuration: 1.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 3, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 3, options: .curveEaseInOut, animations: {
             self.settingsButton.transform = CGAffineTransform(rotationAngle: CGFloat((self.rotationAngle * .pi) / 180.0))
         })
-        
-        //UIView.animate(withDuration: 1.75, animations: {
-           // self.settingsButton.transform = CGAffineTransform(rotationAngle: CGFloat((self.rotationAngle * .pi) / 180.0))
-        //})
     }
 }
