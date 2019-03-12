@@ -12,6 +12,19 @@ import UIKit
 
 class Helper {
     
+    enum AmortizationMode {
+        case minimum
+        case constant
+    }
+    
+    struct Terms {
+        var interest:Double = 0.0
+        var fees:Int = 0
+        var loanAmount:Int = 0
+        var loanDebt:Int = 0
+        var income:Int = 0
+        var amortizationMode: AmortizationMode = AmortizationMode.minimum
+    }
     
     
     static func addDoneButtonOnKeyboard(inputField: UITextField) {

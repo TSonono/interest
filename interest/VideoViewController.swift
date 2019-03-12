@@ -32,7 +32,7 @@ class VideoViewController: UIViewController {
     var path:URL!
     var newLayer:AVPlayerLayer!
     
-    var loanTerms = Terms()
+    var loanTerms = Helper.Terms()
 
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!

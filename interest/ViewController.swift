@@ -22,8 +22,7 @@ class ViewController: UIViewController {
     var interestConvert:String!
     var hasBecomeFirstResponder:Bool = false
     
-    var loanTerms = Terms()
-    
+    var loanTerms = Helper.Terms()
     
     @IBOutlet weak var fieldToTopLabel: NSLayoutConstraint!
     @IBOutlet weak var percentToTopLabel: NSLayoutConstraint!
