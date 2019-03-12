@@ -12,41 +12,7 @@ import UIKit
 
 class ViewControllerE: ViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        if (modelName.contains("5") || modelName.contains("SE")) {
-            fieldToTopLabel.constant = 200
-            percentToTopLabel.constant = 200
-        }
-        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "Simulator iPhone 8") {
-            fieldToTopLabel.constant = 230
-            percentToTopLabel.constant = 230
-        }
-        else if (modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "Simulator iPhone 8 Plus") {
-            fieldToTopLabel.constant = 190
-            percentToTopLabel.constant = 190
-        }
-        
-        buttonTwo.isHidden = false
-        inputField.addDoneButtonOnKeyboard()
-        
-        buttonToBottom.constant = 50
-        buttonToBottom.isActive = false
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            //Prevent first responder automation if user does it manually
-            if (self.hasBecomeFirstResponder == false) {
-                self.inputField.becomeFirstResponder()
-            }
-        }
-    }
-    
-    override func hideButton(_ sender: UITextField) {
+    @IBAction override func hideButton(_ sender: UITextField) {
         var currentVal:Int!
         if (sender.text?.isEmpty == false) {
             currentVal = Int(sender.text!)!

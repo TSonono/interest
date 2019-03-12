@@ -58,18 +58,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        if (modelName.contains("5") || modelName.contains("SE")) {
-            fieldToTopLabel.constant = 200
-            percentToTopLabel.constant = 200
-        }
-        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "Simulator iPhone 8") {
-            fieldToTopLabel.constant = 230
-            percentToTopLabel.constant = 230
-        }
-        else if (modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "Simulator iPhone 8 Plus") {
-            fieldToTopLabel.constant = 190
-            percentToTopLabel.constant = 190
-        }
+        (self.fieldToTopLabel.constant, self.percentToTopLabel.constant) = Helper.setDeviceConstraints(modelName: modelName, fieldToTopLabel: self.fieldToTopLabel, percentToTopLabel: self.percentToTopLabel)
         
         buttonTwo.isHidden = true
         inputField.addDoneButtonOnKeyboard()
@@ -100,8 +89,7 @@ class ViewController: UIViewController {
     }
     
     func scheduledTimerWithTimeInterval(){
-        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 3.25, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 4.5, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
     }
     
     @objc func updateCounting(){
@@ -132,16 +120,19 @@ class ViewController: UIViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         hasBecomeFirstResponder = true
+        initialOriginY = self.view.frame.origin.y
         if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-            if self.view.frame.origin.y == 88 {
+            if self.view.frame.origin.y == initialOriginY {
                 self.view.frame.origin.y -= 150
             }
         }
+        buttonRise()
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 88
+            //self.view.frame.origin.y = 88
+            self.view.frame.origin.y = initialOriginY
         }
         buttonDrop()
     }
@@ -156,7 +147,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func buttonRise(_ sender: Any) {
+    func buttonRise() {
         buttonToField.isActive = true
         buttonToBottom.isActive = false
         //self.buttonToField.constant = 25

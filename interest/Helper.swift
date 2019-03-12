@@ -25,4 +25,19 @@ class Helper {
         var income:Int = 0
         var amortizationMode: AmortizationMode = AmortizationMode.minimum
     }
+    
+    static func setDeviceConstraints(modelName: String, fieldToTopLabel: NSLayoutConstraint, percentToTopLabel: NSLayoutConstraint) -> (fieldToTopLabelConstant: CGFloat, percentToTopLabelConstant: CGFloat) {
+        if (modelName.contains("5") || modelName.contains("SE")) {
+            return (170, 170)
+        }
+        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "Simulator iPhone 8") {
+            return (230, 230)
+        }
+        else if (modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "Simulator iPhone 8 Plus") {
+            return (190, 190)
+        }
+        else{
+            return (fieldToTopLabel.constant, percentToTopLabel.constant)
+        }
+    }
 }

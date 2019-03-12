@@ -27,7 +27,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="buttonRise:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="wkC-VO-m5v"/>
                                     <action selector="decOrNo:" destination="BYZ-38-t0r" eventType="editingChanged" id="FUi-fR-5Cd"/>
                                     <action selector="hideButton:" destination="BYZ-38-t0r" eventType="editingChanged" id="ByW-oz-aDo"/>
                                 </connections>
@@ -549,7 +548,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="buttonRise:" destination="oek-GZ-Ick" eventType="editingDidBegin" id="wkg-0c-1jB"/>
                                     <action selector="hideButton:" destination="oek-GZ-Ick" eventType="editingChanged" id="dy5-4r-R5t"/>
                                 </connections>
                             </textField>
@@ -648,7 +646,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="buttonRise:" destination="ZDk-lD-3C5" eventType="editingDidBegin" id="GaQ-ke-AOd"/>
                                     <action selector="hideButton:" destination="ZDk-lD-3C5" eventType="editingChanged" id="F1p-YB-xDa"/>
                                 </connections>
                             </textField>
@@ -747,7 +744,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="buttonRise:" destination="aV4-lo-Ily" eventType="editingDidBegin" id="75v-QE-iy1"/>
+                                    <action selector="hideButton:" destination="aV4-lo-Ily" eventType="editingDidBegin" id="91F-Wv-AOl"/>
                                     <action selector="hideButton:" destination="aV4-lo-Ily" eventType="editingChanged" id="dFQ-T2-nir"/>
                                 </connections>
                             </textField>
