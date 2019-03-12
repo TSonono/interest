@@ -13,7 +13,7 @@ import Charts
 import fluid_slider
 
 class ViewController2: UIViewController {
-    var loanTerms = Terms()
+    var loanTerms = Helper.Terms()
     var timer = Timer()
     let STARTING_FRACTION = 0.5         // Starting place for slider
     let AMORTIZATION_RATE = 0.03
@@ -23,9 +23,7 @@ class ViewController2: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var debtLabel: UILabel!
     @IBOutlet weak var monthlyCostLabel: UILabel!
-    
-    
-    var interestRate:Double!
+
     var sliderLimit:Double!
     
     var amortDataEntry = PieChartDataEntry(value: 0)
@@ -58,18 +56,17 @@ class ViewController2: UIViewController {
             self.scheduledTimerWithTimeInterval()
         }
         
-        interestRate = interest
-        sliderLimit = whenDebtGone(debt: loanDebt)
+        sliderLimit = whenDebtGone(debt: loanTerms.loanDebt)
         
         pieChart.chartDescription?.text = ""
         pieChart.legend.enabled = false
-        amortDataEntry.value = Double(loanDebt)
+        amortDataEntry.value = Double(loanTerms.loanDebt)
         amortDataEntry.label = "Amortering"
         
-        interestDataEntry.value = Double(interest)
+        interestDataEntry.value = Double(loanTerms.interest)
         interestDataEntry.label = "Ränta"
         
-        feeDataEntry.value = Double(fees)
+        feeDataEntry.value = Double(loanTerms.fees)
         feeDataEntry.label = "Avgifter"
         
         theChart = [amortDataEntry, interestDataEntry, feeDataEntry]
@@ -132,7 +129,7 @@ class ViewController2: UIViewController {
         
         var year:Double = 0
         while (tempDebt > 0) {
-            tempAmort = AMORTIZATION_RATE * Double(loanAmount)
+            tempAmort = AMORTIZATION_RATE * Double(loanTerms.loanAmount)
             tempDebt -= tempAmort
             year += 1
         }
@@ -149,7 +146,7 @@ class ViewController2: UIViewController {
         while year < nYears + 1 {
 
             priorDebt = tempDebt
-            tempAmort = AMORTIZATION_RATE * Double(loanAmount)  //TODO: Change to something like Double(loanAmount)
+            tempAmort = AMORTIZATION_RATE * Double(loanTerms.loanAmount)
             tempInterest = (interestRate/100) * tempDebt
             tempDebt -= tempAmort
             
@@ -166,7 +163,7 @@ class ViewController2: UIViewController {
     
     func changeValues() {
         let sliderVal = Double(slider.fraction) * sliderLimit
-        let dispValues = calc_monthly_payment(nYears: Int((sliderVal * 1).rounded()/1), debt: loanDebt, interestRate: interestRate)
+        let dispValues = calc_monthly_payment(nYears: Int((sliderVal * 1).rounded()/1), debt: loanTerms.loanDebt, interestRate: loanTerms.interest)
         
         if (dispValues.resultingDebt < 0) {
             amortDataEntry.value = 0

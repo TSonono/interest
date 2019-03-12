@@ -6,140 +6,79 @@
 //  Copyright © 2019 Tofik Sonono. All rights reserved.
 //
 
+//TODO: Add the tip and warning animation from the previous version of this page
+
 import UIKit
-import TextFieldEffects
 
-
-// Global Variables:
-var loanDebt:Int!
-
-
-class ViewControllerE: UIViewController {
-    
-    var loanTerms = Terms()
-    
-    @IBOutlet weak var buttonFromBottom: NSLayoutConstraint!
-    @IBOutlet weak var tipLabel: UILabel!
-    @IBOutlet weak var continueButton: UIButton!
-    //@IBOutlet weak var debtField: UITextField!
-    
-    @IBOutlet weak var debtFieldKaede: KaedeTextField!
+class ViewControllerE: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        continueButton.layer.cornerRadius = 20  // Make continueButton have an elliptic shape
-        tipLabel.layer.masksToBounds = true
-        tipLabel.layer.cornerRadius = 20
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        debtFieldKaede.addDoneButtonOnKeyboard()
-        //debtField.textAlignment = .center
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-            self.debtFieldKaede.becomeFirstResponder()
+        if (modelName.contains("5") || modelName.contains("SE")) {
+            fieldToTopLabel.constant = 200
+            percentToTopLabel.constant = 200
         }
-        
-        // animate label text:
-
-        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
-            self.tipLabel.frame.origin.x = 4
-        }, completion: nil)
-    }
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    @IBAction func hideButton(_ sender: UITextField) {            //Continue continueButton only shows when text field not empty
-        var currentVal:Int
-        if (sender.text?.isEmpty == false) {
-            currentVal = Int(sender.text!)!
+        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "Simulator iPhone 8") {
+            fieldToTopLabel.constant = 230
+            percentToTopLabel.constant = 230
         }
-        else {
-            currentVal = 0
-        }
-        if (currentVal > loanAmount) {
-            continueButton.isHidden = true
-        }
-        else {
-            continueButton.isHidden = false
-        }
-    }
-    
-    @IBAction func buttonDrop(_ sender: Any) {
-        self.buttonFromBottom.constant = 150
-    }
-    
-    @IBAction func buttonRise(_ sender: Any) {
-        self.buttonFromBottom.constant = 270
-    }
-    
-    
-    
-    @IBAction func hideTip(_ sender: KaedeTextField) {
-        var currentVal:Int
-        if (sender.text?.isEmpty == false) {
-            currentVal = Int(sender.text!)!
-        }
-        else {
-            currentVal = 0
+        else if (modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "Simulator iPhone 8 Plus") {
+            fieldToTopLabel.constant = 190
+            percentToTopLabel.constant = 190
         }
         
-        if (sender.text?.isEmpty == true) {
-            self.tipLabel.frame.origin.x = 390
-            tipLabel.text = "Tips: Lämna fältet tomt om du planerar att ta lån!"
-            tipLabel.backgroundColor = UIColor(red: 87/255, green: 95/255, blue: 207/255, alpha: 1.0)
-            UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
-                self.tipLabel.frame.origin.x = 4
-            }, completion: nil)
-        }
-        else if (currentVal > loanAmount) {
-            if (self.tipLabel.frame.origin.x != 4) {
-                self.tipLabel.frame.origin.x = -390
-                tipLabel.text = "Skulden får inte vara större än lånebeloppet!"
-                tipLabel.backgroundColor = UIColor(red: 245/255, green: 59/255, blue: 87/255, alpha: 1.0)
-                UIView.animate(withDuration: 0.5, delay: 0.25, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
-                    self.tipLabel.frame.origin.x = 4
-                }, completion: nil)
+        buttonTwo.isHidden = false
+        inputField.addDoneButtonOnKeyboard()
+        
+        buttonToBottom.constant = 50
+        buttonToBottom.isActive = false
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            //Prevent first responder automation if user does it manually
+            if (self.hasBecomeFirstResponder == false) {
+                self.inputField.becomeFirstResponder()
             }
-
-        }
-        else {
-            UIView.animate(withDuration: 0.5, delay: 0.5, animations: {
-                if (self.tipLabel.text == "Skulden får inte vara större än lånebeloppet!") {
-                    self.tipLabel.frame.origin.x = -390
-                }
-                else {
-                    self.tipLabel.frame.origin.x = 390
-                }
-
-            }, completion: nil)
         }
     }
     
-    
-    @IBAction func setDebt(_ sender: Any) {
-        if ((debtFieldKaede.text?.isEmpty)!) {
-            loanDebt = loanAmount
+    override func hideButton(_ sender: UITextField) {
+        var currentVal:Int!
+        if (sender.text?.isEmpty == false) {
+            currentVal = Int(sender.text!)!
         }
         else {
-            loanDebt = Int(debtFieldKaede.text!)
+            currentVal = 0
         }
+        if (currentVal > loanTerms.loanAmount) {
+            buttonTwo.isHidden = true
+        }
+        else {
+            buttonTwo.isHidden = false
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is ViewController2) {
+            let nextController = segue.destination as! ViewController2
+            nextController.loanTerms = self.loanTerms
+        }
+    }
+    
+    @IBAction override func setOutput(_ sender: Any) {
+        if ((self.inputField.text?.isEmpty)!) {
+            loanTerms.loanDebt = loanTerms.loanAmount
+        }
+        else {
+            loanTerms.loanDebt = Int(inputField.text!)!
+        }
+        timer.invalidate()
+        self.inputField.resignFirstResponder()
         performSegue(withIdentifier: "toResult", sender: self)
-    }
-    
-    @IBAction func switchTextFee(_ sender: KaedeTextField) {
-        debtFieldKaede.placeholder = "kr"
-    }
-    
-    @IBAction func backTextFee(_ sender: KaedeTextField) {
-        if ((debtFieldKaede.text?.isEmpty)!) {
-            debtFieldKaede.placeholder = ""
-        }
     }
 
 }

@@ -11,9 +11,6 @@ import UIKit
 let modelName = UIDevice.modelName
 let outOfBoundsTop = -500
 
-// Global Variables:
-var interest:Double!
-
 class ViewController: UIViewController {
     
     var timer = Timer()
@@ -169,7 +166,6 @@ class ViewController: UIViewController {
         interestConvert = inputField.text!
         interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
         loanTerms.interest = Double(interestConvert)!
-        interest = Double(interestConvert)!
         self.inputField.resignFirstResponder()
         performSegue(withIdentifier: "toFees", sender: self)
     }

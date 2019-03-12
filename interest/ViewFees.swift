@@ -8,18 +8,16 @@
 
 import UIKit
 
-
-// Global Variables:
-//TODO: Get rid of this using the created struct
-var fees:Int!
-
 class ViewFees: ViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is ViewControllerLoan) {
+            let nextController = segue.destination as! ViewControllerLoan
+            nextController.loanTerms = self.loanTerms
+        }
     }
     
     @IBAction override func setOutput(_ sender: Any) {
-        fees = Int(inputField.text!)
         loanTerms.fees = Int(inputField.text!)!
         timer.invalidate()
         self.inputField.resignFirstResponder()
