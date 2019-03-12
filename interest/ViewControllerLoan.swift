@@ -29,7 +29,7 @@ class ViewControllerLoan: UIViewController {
         continueButton.layer.cornerRadius = 20  // Make continueButton have an elliptic shape
         continueButton.isHidden = true
         
-        Helper.addDoneButtonOnKeyboard(inputField: self.debtFieldKaede)
+        debtFieldKaede.addDoneButtonOnKeyboard()
         //debtField.textAlignment = .center
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
             self.debtFieldKaede.becomeFirstResponder()

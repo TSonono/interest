@@ -33,7 +33,7 @@ class ViewControllerE: UIViewController {
         tipLabel.layer.masksToBounds = true
         tipLabel.layer.cornerRadius = 20
         
-        Helper.addDoneButtonOnKeyboard(inputField: self.debtFieldKaede)
+        debtFieldKaede.addDoneButtonOnKeyboard()
         //debtField.textAlignment = .center
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
             self.debtFieldKaede.becomeFirstResponder()

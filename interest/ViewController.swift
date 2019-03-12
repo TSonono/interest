@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         }
         
         buttonTwo.isHidden = true
-        Helper.addDoneButtonOnKeyboard(inputField: self.inputField)
+        inputField.addDoneButtonOnKeyboard()
     
         buttonToBottom.constant = 50
         buttonToBottom.isActive = false
