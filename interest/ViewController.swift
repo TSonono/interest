@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     var initialOriginY:CGFloat!
     var interestConvert:String!
+    var hasBecomeFirstResponder:Bool = false
     
     var loanTerms = Terms()
     
@@ -54,8 +55,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         if (modelName.contains("5") || modelName.contains("SE")) {
-            fieldToTopLabel.constant = 150
-            percentToTopLabel.constant = 150
+            fieldToTopLabel.constant = 200
+            percentToTopLabel.constant = 200
         }
         else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "Simulator iPhone 8") {
             fieldToTopLabel.constant = 230
@@ -74,7 +75,10 @@ class ViewController: UIViewController {
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            self.inputField.becomeFirstResponder()
+        //Prevent first responder automation if user does it manually
+            if (self.hasBecomeFirstResponder == false) {
+                self.inputField.becomeFirstResponder()
+            }
         }
     }
     
@@ -140,8 +144,12 @@ class ViewController: UIViewController {
     
     
     @IBAction func raiseView(_ sender: UITextField) {
+        hasBecomeFirstResponder = true
         initialOriginY = self.view.frame.origin.y
-        self.view.frame.origin.y = initialOriginY - 150
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.22) {    //Prevent "black area" when view is raised
+            self.view.frame.origin.y = self.initialOriginY - 150
+        }
+        
     }
     
     @IBAction func lowerView(_ sender: UITextField) {
