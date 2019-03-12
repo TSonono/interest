@@ -33,7 +33,7 @@ class ViewControllerE: UIViewController {
         tipLabel.layer.masksToBounds = true
         tipLabel.layer.cornerRadius = 20
         
-        addDoneButtonOnKeyboard()
+        Helper.addDoneButtonOnKeyboard(inputField: self.debtFieldKaede)
         //debtField.textAlignment = .center
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
             self.debtFieldKaede.becomeFirstResponder()
@@ -130,26 +130,6 @@ class ViewControllerE: UIViewController {
             loanDebt = Int(debtFieldKaede.text!)
         }
         performSegue(withIdentifier: "toResult", sender: self)
-    }
-    
-    func addDoneButtonOnKeyboard() {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        doneToolbar.barStyle       = UIBarStyle.default
-        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(ViewController.doneButtonAction))
-        
-        var items = [UIBarButtonItem]()
-        items.append(flexSpace)
-        items.append(done)
-        
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.debtFieldKaede.inputAccessoryView = doneToolbar
-    }
-    
-    @objc func doneButtonAction() {
-        self.debtFieldKaede.resignFirstResponder()
     }
     
     @IBAction func switchTextFee(_ sender: KaedeTextField) {

@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         }
         
         buttonTwo.isHidden = true
-        addDoneButtonOnKeyboard()
+        Helper.addDoneButtonOnKeyboard(inputField: self.inputField)
     
         buttonToBottom.constant = 50
         buttonToBottom.isActive = false
@@ -164,26 +164,6 @@ class ViewController: UIViewController {
         buttonToField.isActive = true
         buttonToBottom.isActive = false
         //self.buttonToField.constant = 25
-    }
-    
-    func addDoneButtonOnKeyboard() {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        doneToolbar.barStyle       = UIBarStyle.default
-        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(ViewController.doneButtonAction))
-        
-        var items = [UIBarButtonItem]()
-        items.append(flexSpace)
-        items.append(done)
-        
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.inputField.inputAccessoryView = doneToolbar
-    }
-    
-    @objc func doneButtonAction() {
-        self.inputField.resignFirstResponder()
     }
     
     @IBAction func setOutput(_ sender: Any) {
