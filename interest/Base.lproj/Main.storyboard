@@ -70,7 +70,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="setInterest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPu-PM-fZo"/>
+                                    <action selector="setOutput:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rUf-Vk-qsF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -594,7 +594,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="setFees:" destination="oek-GZ-Ick" eventType="touchUpInside" id="VLx-md-nMV"/>
+                                    <action selector="setOutput:" destination="oek-GZ-Ick" eventType="touchDragInside" id="Rgc-zs-phV"/>
                                 </connections>
                             </button>
                         </subviews>

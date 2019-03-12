@@ -176,7 +176,7 @@ class ViewController: UIViewController {
         self.inputField.resignFirstResponder()
     }
     
-    @IBAction func setInterest(_ sender: Any) {
+    @IBAction func setOutput(_ sender: Any) {
         interestConvert = inputField.text!
         interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
         loanTerms.interest = Double(interestConvert)!
