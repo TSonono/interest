@@ -51,8 +51,16 @@ class ViewController: UIViewController {
         scheduledTimerWithTimeInterval()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer.invalidate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         if (modelName.contains("5") || modelName.contains("SE")) {
             fieldToTopLabel.constant = 200
@@ -103,31 +111,15 @@ class ViewController: UIViewController {
     @objc func updateCounting(){
         buttonTwo.pulsate()
     }
-    
 
-    @IBAction func hideButton(_ sender: UITextField) {            //Continue button only shows when text field not empty
+    @IBAction func hideButton(_ sender: UITextField) {
+        //Continue button only shows when text field not empty
         if (sender.text?.isEmpty == true || sender.text == ",") {
             buttonTwo.isHidden = true
         }
         else {
             buttonTwo.isHidden = false
         }
-    }
-    
-    @IBAction func buttonDrop(_ sender: Any) {
-        buttonToField.isActive = false
-        buttonToBottom.isActive = true
-        //self.buttonToField.constant = 250
-        UIView.animate(withDuration: 0.45, delay: 0.0, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-        
-    }
-    
-    @IBAction func buttonRise(_ sender: Any) {
-        buttonToField.isActive = true
-        buttonToBottom.isActive = false
-        //self.buttonToField.constant = 25
     }
     
     @IBAction func decOrNo(_ sender: UITextField) {
@@ -142,18 +134,36 @@ class ViewController: UIViewController {
         sender.reloadInputViews()
     }
     
-    
-    @IBAction func raiseView(_ sender: UITextField) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         hasBecomeFirstResponder = true
-        initialOriginY = self.view.frame.origin.y
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.22) {    //Prevent "black area" when view is raised
-            self.view.frame.origin.y = self.initialOriginY - 150
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y == 88 {
+                self.view.frame.origin.y -= 150
+            }
         }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 88
+        }
+        buttonDrop()
+    }
+    
+    func buttonDrop() {
+        buttonToField.isActive = false
+        buttonToBottom.isActive = true
+        //self.buttonToField.constant = 250
+        UIView.animate(withDuration: 0.45, delay: 0.0, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
         
     }
     
-    @IBAction func lowerView(_ sender: UITextField) {
-        self.view.frame.origin.y = initialOriginY
+    @IBAction func buttonRise(_ sender: Any) {
+        buttonToField.isActive = true
+        buttonToBottom.isActive = false
+        //self.buttonToField.constant = 25
     }
     
     func addDoneButtonOnKeyboard() {
@@ -181,7 +191,6 @@ class ViewController: UIViewController {
         interestConvert = interestConvert.replacingOccurrences(of: ",", with: ".")
         loanTerms.interest = Double(interestConvert)!
         interest = Double(interestConvert)!
-        timer.invalidate()
         self.inputField.resignFirstResponder()
         performSegue(withIdentifier: "toFees", sender: self)
     }

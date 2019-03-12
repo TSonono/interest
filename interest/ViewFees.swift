@@ -10,6 +10,7 @@ import UIKit
 
 
 // Global Variables:
+//TODO: Get rid of this using the created struct
 var fees:Int!
 
 class ViewFees: ViewController {
@@ -19,10 +20,10 @@ class ViewFees: ViewController {
     
     @IBAction override func setOutput(_ sender: Any) {
         fees = Int(inputField.text!)
+        loanTerms.fees = Int(inputField.text!)!
         timer.invalidate()
         self.inputField.resignFirstResponder()
         performSegue(withIdentifier: "toLoanAmount", sender: self)
     }
-    
 }
 

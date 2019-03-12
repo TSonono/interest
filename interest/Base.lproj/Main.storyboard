@@ -27,12 +27,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="buttonDrop:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="aVt-Pv-acM"/>
                                     <action selector="buttonRise:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="wkC-VO-m5v"/>
                                     <action selector="decOrNo:" destination="BYZ-38-t0r" eventType="editingChanged" id="FUi-fR-5Cd"/>
                                     <action selector="hideButton:" destination="BYZ-38-t0r" eventType="editingChanged" id="ByW-oz-aDo"/>
-                                    <action selector="lowerView:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="LdW-ls-qyQ"/>
-                                    <action selector="raiseView:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Xns-FM-rq2"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-wc-gvl">
@@ -552,11 +549,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="buttonDrop:" destination="oek-GZ-Ick" eventType="editingDidEnd" id="Hr3-Nh-AAA"/>
                                     <action selector="buttonRise:" destination="oek-GZ-Ick" eventType="editingDidBegin" id="wkg-0c-1jB"/>
                                     <action selector="hideButton:" destination="oek-GZ-Ick" eventType="editingChanged" id="dy5-4r-R5t"/>
-                                    <action selector="lowerView:" destination="oek-GZ-Ick" eventType="editingDidEnd" id="Tlb-da-5CM"/>
-                                    <action selector="raiseView:" destination="oek-GZ-Ick" eventType="editingDidBegin" id="G2r-aw-oDA"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kr" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEk-w1-icK">
