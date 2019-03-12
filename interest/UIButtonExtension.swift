@@ -14,7 +14,7 @@ extension UIButton {
     func pulsate() {
         
         let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 1.75
+        pulse.duration = 1.0
         pulse.fromValue = 0.95
         pulse.toValue = 1.0
         pulse.autoreverses = false

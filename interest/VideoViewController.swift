@@ -99,7 +99,7 @@ class VideoViewController: UIViewController {
     @objc func updateCounting(){
         continueButton.pulsate()
         self.rotationAngle += 90.0
-        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 3, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 3, options: .curveEaseInOut, animations: {
             self.settingsButton.transform = CGAffineTransform(rotationAngle: CGFloat((self.rotationAngle * .pi) / 180.0))
         })
     }
