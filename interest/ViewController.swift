@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     var interestConvert:String!
     var hasBecomeFirstResponder:Bool = false
     var loadedOnce:LoadMode = LoadMode.notLoaded
+    var viewIsDisappearing:Bool!
     
     var loanTerms = Helper.Terms()
     
@@ -59,14 +60,10 @@ class ViewController: UIViewController {
         scheduledTimerWithTimeInterval()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        timer.invalidate()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadedOnce = LoadMode.loaded
+        viewIsDisappearing = false
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -82,10 +79,20 @@ class ViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
         //Prevent first responder automation if user does it manually
-            if (self.hasBecomeFirstResponder == false) {
+            if (self.hasBecomeFirstResponder == false && self.viewIsDisappearing == false) {
                 self.inputField.becomeFirstResponder()
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewIsDisappearing = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer.invalidate()
     }
     
     //Ensures button is still circular with aspect ratio constraint on different screen sizes:

@@ -17,6 +17,21 @@ class ViewControllerE: ViewController {
     @IBOutlet weak var tipLabelToRight: NSLayoutConstraint!
     @IBOutlet weak var tipLabel: UILabel!
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.tipLabelToLeft.constant = 425
+        self.tipLabelToRight.constant = -405
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tipLabelToLeft.constant = 10
+        self.tipLabelToRight.constant = 10
+        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,11 +39,7 @@ class ViewControllerE: ViewController {
         tipLabel.layer.cornerRadius = 20
                 
         //Animate label text:
-        self.tipLabelToLeft.constant = 10
-        self.tipLabelToRight.constant = 10
-        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+
         
         buttonToField.isActive = false
         buttonToBottom.isActive = true
