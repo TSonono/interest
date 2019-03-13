@@ -103,4 +103,9 @@ class VideoViewController: UIViewController {
             self.settingsButton.transform = CGAffineTransform(rotationAngle: CGFloat((self.rotationAngle * .pi) / 180.0))
         })
     }
+    
+    
+    @IBAction func start(_ sender: Any) {
+        performSegue(withIdentifier: "toInterest", sender: self)
+    }
 }

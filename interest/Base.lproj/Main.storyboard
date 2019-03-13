@@ -114,7 +114,7 @@
             <objects>
                 <viewController id="RfK-NH-vtO" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBA-1Q-wye">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qP7-hh-tbg">
@@ -247,9 +247,6 @@
                                     <constraint firstAttribute="width" constant="35" id="Stg-M3-2IU"/>
                                 </constraints>
                                 <state key="normal" image="icons8-settings-100-2"/>
-                                <connections>
-                                    <segue destination="RfK-NH-vtO" kind="show" id="wCN-UO-PFd"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-JD-7MA">
                                 <rect key="frame" x="112.66666666666669" y="525" width="150" height="150"/>
@@ -269,7 +266,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="uxU-so-Mgt"/>
+                                    <action selector="start:" destination="YKT-Ge-trk" eventType="touchUpInside" id="zrc-3a-gvU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5A-az-FpX">
@@ -300,6 +297,7 @@
                         <outlet property="infoButton" destination="C5A-az-FpX" id="77Y-7k-aWi"/>
                         <outlet property="settingsButton" destination="NZS-Wj-Lk7" id="qg3-Bz-4eA"/>
                         <outlet property="videoView" destination="yVA-IT-fha" id="n8K-U7-pyr"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toInterest" id="wX9-uf-tqN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eGp-ht-voS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,7 +359,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="setOutput:" destination="oek-GZ-Ick" eventType="touchDragInside" id="Rgc-zs-phV"/>
+                                    <action selector="setOutput:" destination="oek-GZ-Ick" eventType="touchUpInside" id="5GA-27-DUW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -459,7 +457,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="setOutput:" destination="ZDk-lD-3C5" eventType="touchDragInside" id="TIy-dT-qOK"/>
+                                    <action selector="setOutput:" destination="ZDk-lD-3C5" eventType="touchUpInside" id="sJA-UY-h6L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -558,7 +556,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="setOutput:" destination="aV4-lo-Ily" eventType="touchDragInside" id="A2b-qJ-NuR"/>
+                                    <action selector="setOutput:" destination="aV4-lo-Ily" eventType="touchUpInside" id="osl-4L-aj9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips: Lämna fältet tomt om du planerar att ta lån!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="6TA-f3-79h" userLabel="Tip Label">
@@ -615,7 +613,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VE-WL-1Lo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="83"/>
+            <point key="canvasLocation" x="1794" y="83"/>
         </scene>
     </scenes>
     <resources>
