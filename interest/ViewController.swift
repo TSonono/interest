@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum LoadMode {
+    case notLoaded
+    case loaded
+    case confirmLoad
+}
+
 let modelName = UIDevice.modelName
 let outOfBoundsTop = -500
 
@@ -18,6 +24,7 @@ class ViewController: UIViewController {
     var initialOriginY:CGFloat!
     var interestConvert:String!
     var hasBecomeFirstResponder:Bool = false
+    var loadedOnce:LoadMode = LoadMode.notLoaded
     
     var loanTerms = Helper.Terms()
     
@@ -34,10 +41,15 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.labelToTop.constant = CGFloat(outOfBoundsTop)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if (loadedOnce != LoadMode.confirmLoad) {
+            loadedOnce = LoadMode.confirmLoad
+            initialOriginY = self.view.frame.origin.y
+        }
         
         self.labelToTop.constant = 0
         UIView.animate(withDuration: 1.65, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: .curveEaseInOut, animations: {
@@ -54,6 +66,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadedOnce = LoadMode.loaded
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -120,10 +133,10 @@ class ViewController: UIViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         hasBecomeFirstResponder = true
-        initialOriginY = self.view.frame.origin.y
+        //initialOriginY = self.view.frame.origin.y
         if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y == initialOriginY {
-                self.view.frame.origin.y -= 150
+                self.view.frame.origin.y = initialOriginY - 150
             }
         }
         buttonRise()
