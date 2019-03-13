@@ -226,7 +226,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-interest/Pods-interest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
@@ -235,7 +234,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);

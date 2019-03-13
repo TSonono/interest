@@ -8,6 +8,5 @@ target 'interest' do
   # Pods for interest
 pod 'Charts'
 pod 'fluid-slider'
-pod 'TextFieldEffects'
 
 end

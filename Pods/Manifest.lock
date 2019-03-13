@@ -5,26 +5,22 @@ PODS:
   - fluid-slider (1.0.0):
     - pop
   - pop (1.0.12)
-  - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
   - Charts
   - fluid-slider
-  - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Charts
     - fluid-slider
     - pop
-    - TextFieldEffects
 
 SPEC CHECKSUMS:
   Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   fluid-slider: a19a991606a34a545cba9341e7422073b4ec3a66
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 3ab1b7e08baf0626b53767a01dcc7409257ea8da
+PODFILE CHECKSUM: c2d1e64a835830d22e8f94d714cd178c00e0a167
 
 COCOAPODS: 1.6.1
