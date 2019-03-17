@@ -19,14 +19,19 @@ class ViewControllerE: ViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.tipLabelToLeft.constant = 425
-        self.tipLabelToRight.constant = -405
+        if (self.tipLabel.text == "Skulden får inte vara större än lånebeloppet!") {
+            self.tipLabelToLeft.constant = -915
+            self.tipLabelToRight.constant = 925
+        }
+        else {
+            self.tipLabelToLeft.constant = 425
+            self.tipLabelToRight.constant = -405
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tipLabelToLeft.constant = 10
-        self.tipLabelToRight.constant = 10
+        hideTip(inputField)
         UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.80, initialSpringVelocity: 4.0, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -86,8 +91,8 @@ class ViewControllerE: ViewController {
         }
         else {
             if (self.tipLabel.text == "Skulden får inte vara större än lånebeloppet!") {
-                self.tipLabelToLeft.constant = -415
-                self.tipLabelToRight.constant = 425
+                self.tipLabelToLeft.constant = -915
+                self.tipLabelToRight.constant = 925
             }
             else {
                 self.tipLabelToLeft.constant = 425
@@ -96,7 +101,7 @@ class ViewControllerE: ViewController {
             UIView.animate(withDuration: 0.5, delay: 0.5, animations: {
                     self.view.layoutIfNeeded()
                 }, completion: nil)
-    }
+        }
     }
     
     @IBAction override func hideButton(_ sender: UITextField) {
