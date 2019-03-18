@@ -23,6 +23,12 @@
 		3A6615C0223149570007CF77 /* ViewControllerLoan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6615BF223149570007CF77 /* ViewControllerLoan.swift */; };
 		3A6615C222316BD80007CF77 /* ViewFees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6615C122316BD80007CF77 /* ViewFees.swift */; };
 		3A6615C4223174CF0007CF77 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6615C3223174CF0007CF77 /* UIButtonExtension.swift */; };
+		3AD94540223FCCA300EB29B3 /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */; };
+		3AD94550223FDE6000EB29B3 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9454B223FDE5F00EB29B3 /* heart.json */; };
+		3AD94551223FDE6000EB29B3 /* wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9454C223FDE5F00EB29B3 /* wallet.json */; };
+		3AD94552223FDE6000EB29B3 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9454D223FDE6000EB29B3 /* star.json */; };
+		3AD94553223FDE6000EB29B3 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9454E223FDE6000EB29B3 /* confetti.json */; };
+		3AD94554223FDE6000EB29B3 /* house.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9454F223FDE6000EB29B3 /* house.json */; };
 		6CCC098C92AB3322A9ADA1D9 /* Pods_interest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9930DB85F529382E5375B5 /* Pods_interest.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +54,12 @@
 		3A6615BF223149570007CF77 /* ViewControllerLoan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLoan.swift; sourceTree = "<group>"; };
 		3A6615C122316BD80007CF77 /* ViewFees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFees.swift; sourceTree = "<group>"; };
 		3A6615C3223174CF0007CF77 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
+		3AD9454B223FDE5F00EB29B3 /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
+		3AD9454C223FDE5F00EB29B3 /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };
+		3AD9454D223FDE6000EB29B3 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star.json; sourceTree = "<group>"; };
+		3AD9454E223FDE6000EB29B3 /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		3AD9454F223FDE6000EB29B3 /* house.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = house.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +98,7 @@
 				2C694B9F200D0F6200EB9096 /* Main.storyboard */,
 				3A1CA44F223100FA006F69CF /* NavigationController.swift */,
 				3A20C4BC22331F5500DD4547 /* VideoViewController.swift */,
+				3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */,
 				2C694B9D200D0F6200EB9096 /* ViewController.swift */,
 				3A6615C122316BD80007CF77 /* ViewFees.swift */,
 				3A6615BF223149570007CF77 /* ViewControllerLoan.swift */,
@@ -98,10 +111,23 @@
 				2C694BA2200D0F6200EB9096 /* Assets.xcassets */,
 				2C694BA4200D0F6200EB9096 /* LaunchScreen.storyboard */,
 				2C694BA7200D0F6200EB9096 /* Info.plist */,
+				3AD94555223FE14400EB29B3 /* Animations */,
 				3A20C4C22233244100DD4547 /* coined.mov */,
 				3A20C4C02233237E00DD4547 /* coin.mov */,
 			);
 			path = interest;
+			sourceTree = "<group>";
+		};
+		3AD94555223FE14400EB29B3 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				3AD9454E223FDE6000EB29B3 /* confetti.json */,
+				3AD9454B223FDE5F00EB29B3 /* heart.json */,
+				3AD9454F223FDE6000EB29B3 /* house.json */,
+				3AD9454D223FDE6000EB29B3 /* star.json */,
+				3AD9454C223FDE5F00EB29B3 /* wallet.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		96F6A311C564AA0B42AA112E /* Frameworks */ = {
@@ -184,10 +210,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A20C4C32233244100DD4547 /* coined.mov in Resources */,
+				3AD94553223FDE6000EB29B3 /* confetti.json in Resources */,
 				3A20C4C12233237E00DD4547 /* coin.mov in Resources */,
+				3AD94550223FDE6000EB29B3 /* heart.json in Resources */,
+				3AD94552223FDE6000EB29B3 /* star.json in Resources */,
 				2C694BA6200D0F6200EB9096 /* LaunchScreen.storyboard in Resources */,
 				2C694BA3200D0F6200EB9096 /* Assets.xcassets in Resources */,
 				2C694BA1200D0F6200EB9096 /* Main.storyboard in Resources */,
+				3AD94554223FDE6000EB29B3 /* house.json in Resources */,
+				3AD94551223FDE6000EB29B3 /* wallet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +258,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-interest/Pods-interest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -235,6 +267,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +289,7 @@
 				2C694B9E200D0F6200EB9096 /* ViewController.swift in Sources */,
 				3A6615C222316BD80007CF77 /* ViewFees.swift in Sources */,
 				3A6615C0223149570007CF77 /* ViewControllerLoan.swift in Sources */,
+				3AD94540223FCCA300EB29B3 /* ViewControllerHome.swift in Sources */,
 				3A1CA450223100FA006F69CF /* NavigationController.swift in Sources */,
 				3A6374362237BDEF00E5A7BF /* Helper.swift in Sources */,
 				2C694B9C200D0F6200EB9096 /* AppDelegate.swift in Sources */,

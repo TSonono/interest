@@ -4,23 +4,27 @@ PODS:
   - Charts/Core (3.2.2)
   - fluid-slider (1.0.0):
     - pop
+  - lottie-ios (2.5.2)
   - pop (1.0.12)
 
 DEPENDENCIES:
   - Charts
   - fluid-slider
+  - lottie-ios
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Charts
     - fluid-slider
+    - lottie-ios
     - pop
 
 SPEC CHECKSUMS:
   Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   fluid-slider: a19a991606a34a545cba9341e7422073b4ec3a66
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: c2d1e64a835830d22e8f94d714cd178c00e0a167
+PODFILE CHECKSUM: 0ac5aedf9277bf65f5696ea165a7fcefe0385611
 
 COCOAPODS: 1.6.1

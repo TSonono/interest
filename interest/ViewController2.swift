@@ -11,6 +11,7 @@
 import UIKit
 import Charts
 import fluid_slider
+import Lottie
 
 class ViewController2: UIViewController {
     var loanTerms = Helper.Terms()
@@ -18,6 +19,7 @@ class ViewController2: UIViewController {
     let STARTING_FRACTION = 0.5         // Starting place for slider
     let AMORTIZATION_RATE = 0.03
 
+    @IBOutlet weak var lottieView: LOTAnimatedControl!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var slider: Slider!
     @IBOutlet weak var label: UILabel!
@@ -50,7 +52,8 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        pieChart.isHidden = true
+        
         pieChart.holeColor = pieChart.backgroundColor
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { //Delay because otherwise the keyboard will not load
             self.scheduledTimerWithTimeInterval()
@@ -74,29 +77,22 @@ class ViewController2: UIViewController {
         slider.fraction = CGFloat(STARTING_FRACTION)
         changeValues()
         
+        lottieView.animationView.setAnimation(named: "confetti.json")
+        lottieView.animationView.center = self.view.center
+        lottieView.animationView.contentMode = .scaleAspectFill
+        lottieView.animationView.animationSpeed = 1.0
+        lottieView.animationView.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [unowned self] in
+            self.lottieView.animationView.isHidden = false
+            self.lottieView.animationView.play()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) { [unowned self] in
+            self.pieChart.isHidden = false
+        }
+        
         //Slider:
-        let labelTextAttributes: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.white]
-        slider.attributedTextForFraction = { fraction in
-            let formatter = NumberFormatter()
-            formatter.maximumIntegerDigits = 2
-            formatter.maximumFractionDigits = 0
-            let string = formatter.string(from: (Double(fraction) * self.sliderLimit) as NSNumber) ?? ""
-            return NSAttributedString(string: string, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.black])
-        }
-        slider.setMinimumLabelAttributedText(NSAttributedString(string: "0", attributes: labelTextAttributes))
-        slider.setMaximumLabelAttributedText(NSAttributedString(string: String(Int(sliderLimit)), attributes: labelTextAttributes))
-        slider.fraction = 0
-        slider.shadowOffset = CGSize(width: 0, height: 10)
-        slider.shadowBlur = 5
-        slider.shadowColor = UIColor(white: 0, alpha: 0.1)
-        slider.contentViewColor = UIColor(red: 255/255.0, green: 196/255.0, blue: 13/255.0, alpha: 1)
-        slider.valueViewColor = .white
-        slider.didBeginTracking = { [weak self] _ in
-            self?.setLabelHidden(true, animated: true)
-        }
-        slider.didEndTracking = { [weak self] _ in
-            self?.setLabelHidden(false, animated: true)
-        }
+        Helper.setSlider(slider: self.slider, sliderLabel: self.label, sliderLimit:self.sliderLimit)
         
     }
     

@@ -181,6 +181,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Fu-6G-GsQ" customClass="LOTAnimatedControl">
+                                <rect key="frame" x="67" y="75" width="240" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Månadskostnad:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIi-CE-mGD">
                                 <rect key="frame" x="29" y="452" width="196" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -223,6 +228,7 @@
                     <connections>
                         <outlet property="debtLabel" destination="4ZE-bf-9E4" id="A7y-Ib-gan"/>
                         <outlet property="label" destination="hJl-RS-HdS" id="aW0-jR-8IS"/>
+                        <outlet property="lottieView" destination="8Fu-6G-GsQ" id="ZUV-Uj-HAb"/>
                         <outlet property="monthlyCostLabel" destination="PRP-lw-5sR" id="tmQ-na-q3E"/>
                         <outlet property="pieChart" destination="OMO-ry-kI5" id="RHK-0D-Mgw"/>
                         <outlet property="slider" destination="SH1-h0-Vqg" id="1g7-WU-Opv"/>
@@ -232,14 +238,35 @@
             </objects>
             <point key="canvasLocation" x="3092" y="83"/>
         </scene>
-        <!--Video View Controller-->
+        <!--View Controller Home-->
         <scene sceneID="j9M-WM-iB1">
             <objects>
-                <viewController id="YKT-Ge-trk" customClass="VideoViewController" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YKT-Ge-trk" customClass="ViewControllerHome" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yVA-IT-fha">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VcD-gd-rdS" customClass="LOTAnimatedControl">
+                                <rect key="frame" x="112.66666666666669" y="525" width="150" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="BOx-xL-Vg9"/>
+                                    <constraint firstAttribute="height" constant="150" id="LXa-VL-JGE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-vZ-qf1" customClass="LOTAnimatedControl">
+                                <rect key="frame" x="50" y="175" width="275" height="342"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5A-az-FpX">
+                                <rect key="frame" x="16" y="5" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="0QS-vG-qEg"/>
+                                    <constraint firstAttribute="height" constant="35" id="Snc-dj-eVy"/>
+                                </constraints>
+                                <state key="normal" image="icons8-info-100"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZS-Wj-Lk7">
                                 <rect key="frame" x="324" y="5" width="35" height="35"/>
                                 <constraints>
@@ -250,7 +277,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-JD-7MA">
                                 <rect key="frame" x="112.66666666666669" y="525" width="150" height="150"/>
-                                <color key="backgroundColor" red="0.92941176470588238" green="0.45490196078431372" blue="0.47843137254901957" alpha="0.86721425513698636" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.3411764705882353" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="2aB-dI-e3p"/>
                                     <constraint firstAttribute="width" constant="150" id="WA5-MR-LZw"/>
@@ -269,23 +296,17 @@
                                     <action selector="start:" destination="YKT-Ge-trk" eventType="touchUpInside" id="zrc-3a-gvU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5A-az-FpX">
-                                <rect key="frame" x="16" y="5" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="0QS-vG-qEg"/>
-                                    <constraint firstAttribute="height" constant="35" id="Snc-dj-eVy"/>
-                                </constraints>
-                                <state key="normal" image="icons8-info-100"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NZS-Wj-Lk7" firstAttribute="top" secondItem="VyQ-pK-08P" secondAttribute="top" constant="5" id="27V-XV-VWX"/>
                             <constraint firstItem="C5A-az-FpX" firstAttribute="top" secondItem="VyQ-pK-08P" secondAttribute="top" constant="5" id="7oh-rr-KEG"/>
                             <constraint firstItem="9MM-JD-7MA" firstAttribute="centerX" secondItem="yVA-IT-fha" secondAttribute="centerX" id="JjW-eJ-h9y"/>
+                            <constraint firstItem="VcD-gd-rdS" firstAttribute="centerX" secondItem="yVA-IT-fha" secondAttribute="centerX" id="Sg9-C1-LaN"/>
                             <constraint firstItem="9MM-JD-7MA" firstAttribute="bottom" secondItem="VyQ-pK-08P" secondAttribute="bottom" constant="-15" id="Usy-wb-hjT"/>
                             <constraint firstItem="VyQ-pK-08P" firstAttribute="trailing" secondItem="NZS-Wj-Lk7" secondAttribute="trailing" constant="16" id="pip-Hi-dtT"/>
                             <constraint firstItem="C5A-az-FpX" firstAttribute="leading" secondItem="VyQ-pK-08P" secondAttribute="leading" constant="16" id="qis-rJ-LXH"/>
+                            <constraint firstItem="VyQ-pK-08P" firstAttribute="bottom" secondItem="VcD-gd-rdS" secondAttribute="bottom" constant="15" id="znF-Lb-Tw9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VyQ-pK-08P"/>
                     </view>
@@ -295,6 +316,8 @@
                     <connections>
                         <outlet property="continueButton" destination="9MM-JD-7MA" id="9BW-On-toA"/>
                         <outlet property="infoButton" destination="C5A-az-FpX" id="77Y-7k-aWi"/>
+                        <outlet property="lottieHeart" destination="VcD-gd-rdS" id="Cjb-5d-QxP"/>
+                        <outlet property="lottieView" destination="fSP-vZ-qf1" id="6Wf-Ev-yPX"/>
                         <outlet property="settingsButton" destination="NZS-Wj-Lk7" id="qg3-Bz-4eA"/>
                         <outlet property="videoView" destination="yVA-IT-fha" id="n8K-U7-pyr"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toInterest" id="wX9-uf-tqN"/>

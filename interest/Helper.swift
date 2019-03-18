@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import fluid_slider
 
 
 class Helper {
@@ -38,6 +39,42 @@ class Helper {
         }
         else{
             return (fieldToTopLabel.constant, percentToTopLabel.constant)
+        }
+    }
+    
+    static func setSlider(slider: Slider, sliderLabel: UILabel, sliderLimit:Double) {
+        let labelTextAttributes: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.white]
+        slider.attributedTextForFraction = { fraction in
+        let formatter = NumberFormatter()
+        formatter.maximumIntegerDigits = 2
+        formatter.maximumFractionDigits = 0
+        let string = formatter.string(from: (Double(fraction) * sliderLimit) as NSNumber) ?? ""
+        return NSAttributedString(string: string, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.black])
+        }
+        slider.setMinimumLabelAttributedText(NSAttributedString(string: "0", attributes: labelTextAttributes))
+        slider.setMaximumLabelAttributedText(NSAttributedString(string: String(Int(sliderLimit)), attributes: labelTextAttributes))
+        slider.fraction = 0
+        slider.shadowOffset = CGSize(width: 0, height: 10)
+        slider.shadowBlur = 5
+        slider.shadowColor = UIColor(white: 0, alpha: 0.1)
+        slider.contentViewColor = UIColor(red: 255/255.0, green: 196/255.0, blue: 13/255.0, alpha: 1)
+        slider.valueViewColor = .white
+        slider.didBeginTracking = { [self] _ in
+            self.setLabelHidden(true, animated: true, sliderLabel: sliderLabel)
+        }
+        slider.didEndTracking = { [self] _ in
+            self.setLabelHidden(false, animated: true, sliderLabel: sliderLabel)
+        }
+    }
+    
+    static private func setLabelHidden(_ hidden: Bool, animated: Bool, sliderLabel: UILabel) {
+        let animations = {
+            sliderLabel.alpha = hidden ? 0 : 1
+        }
+        if animated {
+            UIView.animate(withDuration: 0.11, animations: animations)
+        } else {
+            animations()
         }
     }
 }
