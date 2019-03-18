@@ -76,6 +76,10 @@ class ViewController: UIViewController {
         buttonToBottom.constant = 50
         buttonToBottom.isActive = false
         
+        UIView.animate(withDuration: 0.5, delay: 0.5, animations: {     //Just for esthethics when a view is loaded
+            self.view.layoutIfNeeded()
+        })
+        
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
         //Prevent first responder automation if user does it manually
