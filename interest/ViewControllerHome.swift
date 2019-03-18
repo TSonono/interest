@@ -42,15 +42,18 @@ class ViewControllerHome: UIViewController {
         lottieView.animationView.contentMode = .scaleAspectFill
         lottieView.animationView.loopAnimation = true
         lottieView.animationView.animationSpeed = 0.85
+        lottieHeart.animationView.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.lottieView.animationView.play()
+            self.lottieView.animationView.isHidden = false
+        }
+        
         
         lottieHeart.animationView.setAnimation(named: "star.json")
         lottieHeart.animationView.center = self.view.center
         lottieHeart.animationView.contentMode = .scaleAspectFill
         lottieHeart.animationView.animationSpeed = 1.60
-        
-        lottieView.animationView.play()
-        
-        lottieHeart.animationView.isHidden = true
+        lottieView.animationView.isHidden = true
         
     }
     
