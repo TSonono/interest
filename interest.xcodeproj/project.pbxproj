@@ -57,7 +57,7 @@
 		3A6615BF223149570007CF77 /* ViewControllerLoan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLoan.swift; sourceTree = "<group>"; };
 		3A6615C122316BD80007CF77 /* ViewFees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFees.swift; sourceTree = "<group>"; };
 		3A6615C3223174CF0007CF77 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		3A82824E2241143800AAFC79 /* LoanTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanTerms.swift; sourceTree = "<group>"; };
+		3A82824E2241143800AAFC79 /* LoanTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanTerms.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
 		3AD9454B223FDE5F00EB29B3 /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
 		3AD9454C223FDE5F00EB29B3 /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };

@@ -14,7 +14,7 @@ import fluid_slider
 import Lottie
 
 class ViewController2: UIViewController {
-    var loanTerms = Helper.Terms()
+    var loanTerms:Terms!
     var timer = Timer()
     let STARTING_FRACTION = 0.5         // Starting place for slider
     let AMORTIZATION_RATE = 0.03

@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     var loadedOnce:LoadMode = LoadMode.notLoaded
     var viewIsDisappearing:Bool!
     
-    var loanTerms = Helper.Terms()
+    var loanTerms:Terms!
     
     @IBOutlet weak var fieldToTopLabel: NSLayoutConstraint!
     @IBOutlet weak var percentToTopLabel: NSLayoutConstraint!

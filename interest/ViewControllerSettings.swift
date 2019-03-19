@@ -14,7 +14,7 @@ class ViewControllerSettings: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var modeSwitch: UISwitch!
     @IBOutlet weak var lottieView: LOTAnimatedControl!
     
-    var loanTerms = Helper.Terms()
+    var loanTerms:Terms!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +39,10 @@ class ViewControllerSettings: UIViewController, UINavigationControllerDelegate {
     
     @IBAction func toggled(_ sender: Any) {
         if modeSwitch.isOn {
-            loanTerms.amortizationMode = Helper.AmortizationMode.minimum
+            loanTerms.amortizationMode = AmortizationMode.minimum
         }
         else {
-            loanTerms.amortizationMode = Helper.AmortizationMode.constant
+            loanTerms.amortizationMode = AmortizationMode.constant
         }
     }
     

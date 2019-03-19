@@ -19,7 +19,7 @@ class ViewControllerHome: UIViewController {
     var rotationAngle:Double = 0.0
     var timer = Timer()
     
-    var loanTerms = Helper.Terms()
+    var loanTerms = Terms()
     
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
