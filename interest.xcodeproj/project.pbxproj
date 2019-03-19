@@ -100,9 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				2C694B9F200D0F6200EB9096 /* Main.storyboard */,
-				3A82824E2241143800AAFC79 /* LoanTerms.swift */,
 				3A1CA44F223100FA006F69CF /* NavigationController.swift */,
-				3A20C4BC22331F5500DD4547 /* VideoViewController.swift */,
 				3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */,
 				2C694B9D200D0F6200EB9096 /* ViewController.swift */,
 				3A6615C122316BD80007CF77 /* ViewFees.swift */,
@@ -110,6 +108,7 @@
 				3A360EE6222E5C8200652D99 /* ViewControllerE.swift */,
 				2C694BB3200D3AB500EB9096 /* ViewController2.swift */,
 				3A025BD92240374A00D59C3D /* ViewControllerSettings.swift */,
+				3A82824E2241143800AAFC79 /* LoanTerms.swift */,
 				3A6374352237BDEF00E5A7BF /* Helper.swift */,
 				3A6615C3223174CF0007CF77 /* UIButtonExtension.swift */,
 				3A20CD8D2237CF8700258152 /* UITextField+Extensions.swift */,
@@ -120,6 +119,7 @@
 				3AD94555223FE14400EB29B3 /* Animations */,
 				3A20C4C22233244100DD4547 /* coined.mov */,
 				3A20C4C02233237E00DD4547 /* coin.mov */,
+				3A20C4BC22331F5500DD4547 /* VideoViewController.swift */,
 			);
 			path = interest;
 			sourceTree = "<group>";

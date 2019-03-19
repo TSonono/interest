@@ -8,9 +8,10 @@
 
 import Foundation
 
-enum AmortizationMode {
-    case minimum
-    case constant
+enum AmortizationMode: String {
+    // Using raw values to support UserDefaults
+    case minimum = "minimum"
+    case constant = "constant"
 }
 
 class Terms {
@@ -20,8 +21,9 @@ class Terms {
     var loanAmount:Int = 0
     var loanDebt:Int = 0
     var income:Int = 0
-    var amortizationMode: AmortizationMode = AmortizationMode.minimum
+    var amortizationMode:AmortizationMode
     
-    init() {
+    init(amortizationMode:AmortizationMode) {
+        self.amortizationMode = amortizationMode
     }
 }

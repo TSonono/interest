@@ -13,20 +13,6 @@ import fluid_slider
 
 class Helper {
     
-    enum AmortizationMode {
-        case minimum
-        case constant
-    }
-    
-    struct Terms {
-        var interest:Double = 0.0
-        var fees:Int = 0
-        var loanAmount:Int = 0
-        var loanDebt:Int = 0
-        var income:Int = 0
-        var amortizationMode: AmortizationMode = AmortizationMode.minimum
-    }
-    
     static func setDeviceConstraints(modelName: String, fieldToTopLabel: NSLayoutConstraint, percentToTopLabel: NSLayoutConstraint) -> (fieldToTopLabelConstant: CGFloat, percentToTopLabelConstant: CGFloat) {
         if (modelName.contains("5") || modelName.contains("SE")) {
             return (170, 170)

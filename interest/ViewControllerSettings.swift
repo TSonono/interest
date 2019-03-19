@@ -18,7 +18,8 @@ class ViewControllerSettings: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.delegate = self
+        modeSwitch.isOn =  UserDefaults.standard.bool(forKey: "switchState")
+        navigationController?.delegate = self   //For passing data back to previous view controller
         
         lottieView.animationView.setAnimation(named: "wallet.json")
         lottieView.animationView.center = self.view.center
@@ -29,7 +30,6 @@ class ViewControllerSettings: UIViewController, UINavigationControllerDelegate {
         }
         lottieView.animationView.play()
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,18 +44,12 @@ class ViewControllerSettings: UIViewController, UINavigationControllerDelegate {
         else {
             loanTerms.amortizationMode = AmortizationMode.constant
         }
+        UserDefaults.standard.set(loanTerms.amortizationMode.rawValue, forKey: "amortizationMode")
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveSwitch(_ sender: UISwitch) {
+        //Saves switcher postion between sesstions
+        UserDefaults.standard.set(sender.isOn, forKey: "switchState")
     }
-    */
-
 }
 
 extension ViewControllerSettings {

@@ -19,7 +19,7 @@ class ViewControllerHome: UIViewController {
     var rotationAngle:Double = 0.0
     var timer = Timer()
     
-    var loanTerms = Terms()
+    var loanTerms:Terms!
     
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
@@ -35,11 +35,12 @@ class ViewControllerHome: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print(loanTerms.amortizationMode)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loanTerms = Terms(amortizationMode: AmortizationMode(rawValue: UserDefaults.standard.string(forKey: "amortizationMode")!) ?? AmortizationMode.minimum)
+        
         scheduledTimerWithTimeInterval()
         
         lottieView.animationView.setAnimation(named: "house.json")

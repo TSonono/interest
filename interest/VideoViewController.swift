@@ -18,7 +18,7 @@ class VideoViewController: UIViewController {
     var path:URL!
     var newLayer:AVPlayerLayer!
     
-    var loanTerms = Terms()
+    var loanTerms = Terms(amortizationMode: AmortizationMode.minimum)
 
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
