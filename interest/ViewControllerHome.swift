@@ -35,6 +35,7 @@ class ViewControllerHome: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print(loanTerms.amortizationMode)
     }
     
     override func viewDidLoad() {
@@ -47,7 +48,7 @@ class ViewControllerHome: UIViewController {
         lottieView.animationView.loopAnimation = true
         lottieView.animationView.animationSpeed = 0.85
         lottieHeart.animationView.isHidden = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.lottieView.animationView.play()
             self.lottieView.animationView.isHidden = false
         }
