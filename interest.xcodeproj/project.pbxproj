@@ -13,6 +13,7 @@
 		2C694BA3200D0F6200EB9096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C694BA2200D0F6200EB9096 /* Assets.xcassets */; };
 		2C694BA6200D0F6200EB9096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C694BA4200D0F6200EB9096 /* LaunchScreen.storyboard */; };
 		2C694BB4200D3AB500EB9096 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C694BB3200D3AB500EB9096 /* ViewController2.swift */; };
+		3A025BDA2240374A00D59C3D /* ViewControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A025BD92240374A00D59C3D /* ViewControllerSettings.swift */; };
 		3A1CA450223100FA006F69CF /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1CA44F223100FA006F69CF /* NavigationController.swift */; };
 		3A20C4BD22331F5500DD4547 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A20C4BC22331F5500DD4547 /* VideoViewController.swift */; };
 		3A20C4C12233237E00DD4547 /* coin.mov in Resources */ = {isa = PBXBuildFile; fileRef = 3A20C4C02233237E00DD4547 /* coin.mov */; };
@@ -23,6 +24,7 @@
 		3A6615C0223149570007CF77 /* ViewControllerLoan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6615BF223149570007CF77 /* ViewControllerLoan.swift */; };
 		3A6615C222316BD80007CF77 /* ViewFees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6615C122316BD80007CF77 /* ViewFees.swift */; };
 		3A6615C4223174CF0007CF77 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6615C3223174CF0007CF77 /* UIButtonExtension.swift */; };
+		3A82824F2241143800AAFC79 /* LoanTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82824E2241143800AAFC79 /* LoanTerms.swift */; };
 		3AD94540223FCCA300EB29B3 /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */; };
 		3AD94550223FDE6000EB29B3 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9454B223FDE5F00EB29B3 /* heart.json */; };
 		3AD94551223FDE6000EB29B3 /* wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9454C223FDE5F00EB29B3 /* wallet.json */; };
@@ -44,6 +46,7 @@
 		2D9930DB85F529382E5375B5 /* Pods_interest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_interest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BC6B3B89AB8C955FE15807 /* Pods-interest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interest.release.xcconfig"; path = "Target Support Files/Pods-interest/Pods-interest.release.xcconfig"; sourceTree = "<group>"; };
 		39F8EE2B3E78E47F3866CEC6 /* Pods-interest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interest.debug.xcconfig"; path = "Target Support Files/Pods-interest/Pods-interest.debug.xcconfig"; sourceTree = "<group>"; };
+		3A025BD92240374A00D59C3D /* ViewControllerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSettings.swift; sourceTree = "<group>"; };
 		3A1CA44F223100FA006F69CF /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		3A20C4BC22331F5500DD4547 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		3A20C4C02233237E00DD4547 /* coin.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = coin.mov; path = ../../../../Downloads/coin.mov; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		3A6615BF223149570007CF77 /* ViewControllerLoan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLoan.swift; sourceTree = "<group>"; };
 		3A6615C122316BD80007CF77 /* ViewFees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFees.swift; sourceTree = "<group>"; };
 		3A6615C3223174CF0007CF77 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		3A82824E2241143800AAFC79 /* LoanTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanTerms.swift; sourceTree = "<group>"; };
 		3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
 		3AD9454B223FDE5F00EB29B3 /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
 		3AD9454C223FDE5F00EB29B3 /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				2C694B9F200D0F6200EB9096 /* Main.storyboard */,
+				3A82824E2241143800AAFC79 /* LoanTerms.swift */,
 				3A1CA44F223100FA006F69CF /* NavigationController.swift */,
 				3A20C4BC22331F5500DD4547 /* VideoViewController.swift */,
 				3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */,
@@ -104,6 +109,7 @@
 				3A6615BF223149570007CF77 /* ViewControllerLoan.swift */,
 				3A360EE6222E5C8200652D99 /* ViewControllerE.swift */,
 				2C694BB3200D3AB500EB9096 /* ViewController2.swift */,
+				3A025BD92240374A00D59C3D /* ViewControllerSettings.swift */,
 				3A6374352237BDEF00E5A7BF /* Helper.swift */,
 				3A6615C3223174CF0007CF77 /* UIButtonExtension.swift */,
 				3A20CD8D2237CF8700258152 /* UITextField+Extensions.swift */,
@@ -291,7 +297,9 @@
 				3A6615C0223149570007CF77 /* ViewControllerLoan.swift in Sources */,
 				3AD94540223FCCA300EB29B3 /* ViewControllerHome.swift in Sources */,
 				3A1CA450223100FA006F69CF /* NavigationController.swift in Sources */,
+				3A82824F2241143800AAFC79 /* LoanTerms.swift in Sources */,
 				3A6374362237BDEF00E5A7BF /* Helper.swift in Sources */,
+				3A025BDA2240374A00D59C3D /* ViewControllerSettings.swift in Sources */,
 				2C694B9C200D0F6200EB9096 /* AppDelegate.swift in Sources */,
 				2C694BB4200D3AB500EB9096 /* ViewController2.swift in Sources */,
 			);

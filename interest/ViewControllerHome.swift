@@ -33,6 +33,10 @@ class ViewControllerHome: UIViewController {
         lottieHeart.animationView.isHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scheduledTimerWithTimeInterval()
@@ -62,6 +66,10 @@ class ViewControllerHome: UIViewController {
             let nextController = segue.destination as! ViewController
             nextController.loanTerms = self.loanTerms
         }
+        if (segue.destination is ViewControllerSettings) {
+            let nextController = segue.destination as! ViewControllerSettings
+            nextController.loanTerms = self.loanTerms
+        }
     }
     
 
@@ -88,7 +96,6 @@ class ViewControllerHome: UIViewController {
         continueButton.isHidden = true
         lottieHeart.animationView.isHidden = false
         lottieHeart.animationView.play()
-        print(lottieHeart.animationView.animationDuration)
         
         //Time in this delay should match the duration of the heart animation
         //Note: The duration is affected by the animation speed, which is not reflected in .animationSpeed
@@ -96,4 +103,8 @@ class ViewControllerHome: UIViewController {
             self.performSegue(withIdentifier: "toInterest", sender: nil)
         }
     }
+    @IBAction func goToSettings(_ sender: Any) {
+        performSegue(withIdentifier: "toSettings", sender: nil)
+    }
+    
 }

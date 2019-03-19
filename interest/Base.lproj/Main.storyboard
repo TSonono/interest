@@ -112,32 +112,51 @@
         <!--Inställningar-->
         <scene sceneID="KAI-Eh-4yr">
             <objects>
-                <viewController id="RfK-NH-vtO" sceneMemberID="viewController">
+                <viewController id="RfK-NH-vtO" customClass="ViewControllerSettings" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBA-1Q-wye">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qP7-hh-tbg">
-                                <rect key="frame" x="0.0" y="88" width="375" height="180"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Shk-DS-O9x">
+                                <rect key="frame" x="312" y="254" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <connections>
+                                    <action selector="toggled:" destination="RfK-NH-vtO" eventType="valueChanged" id="2Gq-Lt-Qcg"/>
+                                </connections>
+                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Luq-Bz-44R" customClass="LOTAnimatedControl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Luq-Bz-44R" secondAttribute="height" multiplier="375:199" id="Bh7-4c-tPb"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anpassa inställningarna för amortering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-NS-Ddz">
-                                <rect key="frame" x="0.0" y="266" width="375" height="80"/>
+                                <rect key="frame" x="16" y="229" width="264" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Luq-Bz-44R" firstAttribute="top" secondItem="3LU-Dj-X0c" secondAttribute="top" id="56Y-kH-OOr"/>
+                            <constraint firstItem="Luq-Bz-44R" firstAttribute="leading" secondItem="jBA-1Q-wye" secondAttribute="leading" id="MQO-Lt-5DU"/>
+                            <constraint firstAttribute="trailing" secondItem="Luq-Bz-44R" secondAttribute="trailing" id="hfs-cz-18e"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3LU-Dj-X0c"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Inställningar" image="icons8-settings-30" id="45c-Z6-Z0f"/>
                     <navigationItem key="navigationItem" id="IY2-nn-5BL"/>
+                    <connections>
+                        <outlet property="lottieView" destination="Luq-Bz-44R" id="vm6-HS-pKI"/>
+                        <outlet property="modeSwitch" destination="Shk-DS-O9x" id="D1X-6I-ScC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhz-e2-JY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1185" y="-720"/>
+            <point key="canvasLocation" x="-1186.4000000000001" y="-720.44334975369463"/>
         </scene>
         <!--Räkna!-->
         <scene sceneID="Sw9-xa-rI8">
@@ -274,6 +293,9 @@
                                     <constraint firstAttribute="width" constant="35" id="Stg-M3-2IU"/>
                                 </constraints>
                                 <state key="normal" image="icons8-settings-100-2"/>
+                                <connections>
+                                    <action selector="goToSettings:" destination="YKT-Ge-trk" eventType="touchUpInside" id="ihM-6t-Kmy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MM-JD-7MA">
                                 <rect key="frame" x="112.66666666666669" y="525" width="150" height="150"/>
@@ -321,6 +343,7 @@
                         <outlet property="settingsButton" destination="NZS-Wj-Lk7" id="qg3-Bz-4eA"/>
                         <outlet property="videoView" destination="yVA-IT-fha" id="n8K-U7-pyr"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toInterest" id="wX9-uf-tqN"/>
+                        <segue destination="RfK-NH-vtO" kind="show" identifier="toSettings" id="Az4-4Q-ntF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eGp-ht-voS" userLabel="First Responder" sceneMemberID="firstResponder"/>
