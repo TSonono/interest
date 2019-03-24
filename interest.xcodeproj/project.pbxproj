@@ -19,6 +19,8 @@
 		3A20C4C12233237E00DD4547 /* coin.mov in Resources */ = {isa = PBXBuildFile; fileRef = 3A20C4C02233237E00DD4547 /* coin.mov */; };
 		3A20C4C32233244100DD4547 /* coined.mov in Resources */ = {isa = PBXBuildFile; fileRef = 3A20C4C22233244100DD4547 /* coined.mov */; };
 		3A20CD8E2237CF8700258152 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A20CD8D2237CF8700258152 /* UITextField+Extensions.swift */; };
+		3A309D772247D95D007D058E /* Pods-interest-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A309D762247D95D007D058E /* Pods-interest-acknowledgements.plist */; };
+		3A309D792247D99B007D058E /* ViewControllerAck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A309D782247D99B007D058E /* ViewControllerAck.swift */; };
 		3A360EE7222E5C8200652D99 /* ViewControllerE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A360EE6222E5C8200652D99 /* ViewControllerE.swift */; };
 		3A6374362237BDEF00E5A7BF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6374352237BDEF00E5A7BF /* Helper.swift */; };
 		3A6615C0223149570007CF77 /* ViewControllerLoan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6615BF223149570007CF77 /* ViewControllerLoan.swift */; };
@@ -52,6 +54,8 @@
 		3A20C4C02233237E00DD4547 /* coin.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = coin.mov; path = ../../../../Downloads/coin.mov; sourceTree = "<group>"; };
 		3A20C4C22233244100DD4547 /* coined.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = coined.mov; path = ../../../../Downloads/coined.mov; sourceTree = "<group>"; };
 		3A20CD8D2237CF8700258152 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		3A309D762247D95D007D058E /* Pods-interest-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-interest-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-interest/Pods-interest-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
+		3A309D782247D99B007D058E /* ViewControllerAck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAck.swift; sourceTree = "<group>"; };
 		3A360EE6222E5C8200652D99 /* ViewControllerE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerE.swift; sourceTree = "<group>"; };
 		3A6374352237BDEF00E5A7BF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		3A6615BF223149570007CF77 /* ViewControllerLoan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLoan.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				2C694B9F200D0F6200EB9096 /* Main.storyboard */,
+				3A309D782247D99B007D058E /* ViewControllerAck.swift */,
 				3A1CA44F223100FA006F69CF /* NavigationController.swift */,
 				3AD9453F223FCCA300EB29B3 /* ViewControllerHome.swift */,
 				2C694B9D200D0F6200EB9096 /* ViewController.swift */,
@@ -116,6 +121,7 @@
 				2C694BA2200D0F6200EB9096 /* Assets.xcassets */,
 				2C694BA4200D0F6200EB9096 /* LaunchScreen.storyboard */,
 				2C694BA7200D0F6200EB9096 /* Info.plist */,
+				3A309D762247D95D007D058E /* Pods-interest-acknowledgements.plist */,
 				3AD94555223FE14400EB29B3 /* Animations */,
 				3A20C4C22233244100DD4547 /* coined.mov */,
 				3A20C4C02233237E00DD4547 /* coin.mov */,
@@ -215,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A309D772247D95D007D058E /* Pods-interest-acknowledgements.plist in Resources */,
 				3A20C4C32233244100DD4547 /* coined.mov in Resources */,
 				3AD94553223FDE6000EB29B3 /* confetti.json in Resources */,
 				3A20C4C12233237E00DD4547 /* coin.mov in Resources */,
@@ -262,6 +269,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-interest/Pods-interest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
@@ -271,6 +279,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -288,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A309D792247D99B007D058E /* ViewControllerAck.swift in Sources */,
 				3A20CD8E2237CF8700258152 /* UITextField+Extensions.swift in Sources */,
 				3A360EE7222E5C8200652D99 /* ViewControllerE.swift in Sources */,
 				3A6615C4223174CF0007CF77 /* UIButtonExtension.swift in Sources */,

@@ -28,7 +28,7 @@ class ViewControllerSettings: UIViewController, UINavigationControllerDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.lottieView.animationView.play()
         }
-        lottieView.animationView.play()
+        //lottieView.animationView.play()
 
     }
     

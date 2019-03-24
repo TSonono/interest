@@ -9,5 +9,6 @@ target 'interest' do
 pod 'Charts'
 pod 'fluid-slider'
 pod 'lottie-ios'
+pod 'AcknowList'
 
 end
