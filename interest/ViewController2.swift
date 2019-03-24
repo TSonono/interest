@@ -32,6 +32,9 @@ class ViewController2: UIViewController {
     @IBOutlet weak var monthlyCostLabel: UILabel!
     @IBOutlet weak var monthCostConst: NSLayoutConstraint!
     @IBOutlet weak var monthConst: NSLayoutConstraint!
+    @IBOutlet weak var valDist: NSLayoutConstraint!
+    @IBOutlet weak var textDist: NSLayoutConstraint!
+    
     
     
     var sliderLimit:Double!
@@ -69,6 +72,31 @@ class ViewController2: UIViewController {
             monthConst.constant = monthConst.constant - 15
             monthCostConst.constant = monthCostConst.constant - 15
         }
+        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "iPhone 8" || modelName == "Simulator iPhone 8") {
+            valDist.constant = valDist.constant
+            textDist.constant = textDist.constant
+            monthConst.constant = monthConst.constant - 10
+            monthCostConst.constant = monthCostConst.constant - 10
+        }
+        else if (modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "Simulator iPhone 8 Plus") {
+            valDist.constant = valDist.constant + 20
+            textDist.constant = textDist.constant + 20
+            
+        }
+        else if (modelName.contains("iPhone XS Max")) {
+            valDist.constant = valDist.constant + 20
+            textDist.constant = textDist.constant + 20
+        }
+        else if (modelName.contains("iPhone XR")) {
+            valDist.constant = valDist.constant + 20
+            textDist.constant = textDist.constant + 20
+        }
+        else{
+            valDist.constant = valDist.constant + 20
+            textDist.constant = textDist.constant + 20
+        }
+        
+        pieChart.isHidden = true
         
         pieChart.isHidden = true
         

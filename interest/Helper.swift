@@ -15,15 +15,21 @@ class Helper {
     
     static func setDeviceConstraints(modelName: String, fieldToTopLabel: NSLayoutConstraint, percentToTopLabel: NSLayoutConstraint) -> (fieldToTopLabelConstant: CGFloat, percentToTopLabelConstant: CGFloat) {
         if (modelName.contains("5") || modelName.contains("SE")) {
-            return (170, 170)
+            return (190, 190)
         }
-        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "Simulator iPhone 8") {
+        else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "iPhone 8" || modelName == "Simulator iPhone 8") {
             return (230, 230)
         }
         else if (modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "Simulator iPhone 8 Plus") {
-            return (190, 190)
+            return (250, 250)
         }
-        else{
+        else if (modelName.contains("iPhone XS Max")) {
+            return (300, 300)
+        }
+        else if (modelName.contains("iPhone XR")) {
+            return (300,300)
+        }
+        else {
             return (fieldToTopLabel.constant, percentToTopLabel.constant)
         }
     }

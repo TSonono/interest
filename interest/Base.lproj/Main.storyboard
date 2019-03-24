@@ -769,6 +769,8 @@
                         <outlet property="pieChart" destination="h8Q-im-Gqz" id="qeA-At-dHq"/>
                         <outlet property="slider" destination="9yE-H8-HVt" id="sBp-MF-mAg"/>
                         <outlet property="sliderHeight" destination="OMv-3S-3DZ" id="Vy0-xh-wew"/>
+                        <outlet property="textDist" destination="rlT-Qt-6X9" id="moA-zM-2FS"/>
+                        <outlet property="valDist" destination="SVF-cW-aSn" id="I3y-Tk-wpz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIG-V2-cQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
