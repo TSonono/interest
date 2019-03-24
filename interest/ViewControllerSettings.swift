@@ -39,10 +39,10 @@ class ViewControllerSettings: UIViewController, UINavigationControllerDelegate {
     
     @IBAction func toggled(_ sender: Any) {
         if modeSwitch.isOn {
-            loanTerms.amortizationMode = AmortizationMode.minimum
+            loanTerms.amortizationMode = AmortizationMode.constant
         }
         else {
-            loanTerms.amortizationMode = AmortizationMode.constant
+            loanTerms.amortizationMode = AmortizationMode.minimum
         }
         UserDefaults.standard.set(loanTerms.amortizationMode.rawValue, forKey: "amortizationMode")
     }

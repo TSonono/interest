@@ -34,12 +34,13 @@ class ViewControllerHome: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print(loanTerms.amortizationMode)
         super.viewDidAppear(animated)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loanTerms = Terms(amortizationMode: AmortizationMode(rawValue: UserDefaults.standard.string(forKey: "amortizationMode")!) ?? AmortizationMode.minimum)
+        loanTerms = Terms(amortizationMode: AmortizationMode(rawValue: UserDefaults.standard.string(forKey: "amortizationMode") ?? AmortizationMode.minimum.rawValue) ?? AmortizationMode.minimum)
         
         scheduledTimerWithTimeInterval()
         

@@ -69,6 +69,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         (self.fieldToTopLabel.constant, self.percentToTopLabel.constant) = Helper.setDeviceConstraints(modelName: modelName, fieldToTopLabel: self.fieldToTopLabel, percentToTopLabel: self.percentToTopLabel)
+        self.view.layoutIfNeeded()
         
         buttonTwo.isHidden = true
         inputField.addDoneButtonOnKeyboard()

@@ -117,7 +117,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Shk-DS-O9x">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Shk-DS-O9x">
                                 <rect key="frame" x="312" y="254" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -186,7 +186,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SH1-h0-Vqg" customClass="Slider" customModule="fluid_slider">
-                                <rect key="frame" x="29" y="561" width="317" height="62"/>
+                                <rect key="frame" x="29" y="588" width="317" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -228,7 +228,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="År frammåt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJl-RS-HdS">
-                                <rect key="frame" x="125" y="507" width="125" height="46"/>
+                                <rect key="frame" x="139.66666666666666" y="545" width="95.666666666666657" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -274,11 +274,6 @@
                                     <constraint firstAttribute="height" constant="150" id="LXa-VL-JGE"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-vZ-qf1" customClass="LOTAnimatedControl">
-                                <rect key="frame" x="50" y="175" width="275" height="342"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5A-az-FpX">
                                 <rect key="frame" x="16" y="5" width="35" height="35"/>
                                 <constraints>
@@ -319,15 +314,25 @@
                                     <action selector="start:" destination="YKT-Ge-trk" eventType="touchUpInside" id="zrc-3a-gvU"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-vZ-qf1" customClass="LOTAnimatedControl">
+                                <rect key="frame" x="50" y="112" width="275" height="342"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fSP-vZ-qf1" secondAttribute="height" multiplier="275:342" id="RdC-gK-EdG"/>
+                                    <constraint firstAttribute="width" constant="275" id="YtF-wB-u6f"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NZS-Wj-Lk7" firstAttribute="top" secondItem="VyQ-pK-08P" secondAttribute="top" constant="5" id="27V-XV-VWX"/>
                             <constraint firstItem="C5A-az-FpX" firstAttribute="top" secondItem="VyQ-pK-08P" secondAttribute="top" constant="5" id="7oh-rr-KEG"/>
+                            <constraint firstItem="fSP-vZ-qf1" firstAttribute="centerX" secondItem="yVA-IT-fha" secondAttribute="centerX" id="ETr-nK-KXE"/>
                             <constraint firstItem="9MM-JD-7MA" firstAttribute="centerX" secondItem="yVA-IT-fha" secondAttribute="centerX" id="JjW-eJ-h9y"/>
                             <constraint firstItem="VcD-gd-rdS" firstAttribute="centerX" secondItem="yVA-IT-fha" secondAttribute="centerX" id="Sg9-C1-LaN"/>
                             <constraint firstItem="9MM-JD-7MA" firstAttribute="bottom" secondItem="VyQ-pK-08P" secondAttribute="bottom" constant="-15" id="Usy-wb-hjT"/>
                             <constraint firstItem="VyQ-pK-08P" firstAttribute="trailing" secondItem="NZS-Wj-Lk7" secondAttribute="trailing" constant="16" id="pip-Hi-dtT"/>
+                            <constraint firstItem="fSP-vZ-qf1" firstAttribute="centerY" secondItem="yVA-IT-fha" secondAttribute="centerY" constant="-79" id="pqH-1g-9t1"/>
                             <constraint firstItem="C5A-az-FpX" firstAttribute="leading" secondItem="VyQ-pK-08P" secondAttribute="leading" constant="16" id="qis-rJ-LXH"/>
                             <constraint firstItem="VyQ-pK-08P" firstAttribute="bottom" secondItem="VcD-gd-rdS" secondAttribute="bottom" constant="15" id="znF-Lb-Tw9"/>
                         </constraints>
