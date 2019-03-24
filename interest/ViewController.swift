@@ -64,6 +64,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadedOnce = LoadMode.loaded
         viewIsDisappearing = false
+        if (modelName.contains("SE") || modelName.contains("5")) {
+            buttonToField.constant = buttonToField.constant - 10
+            buttonTwo.titleLabel!.font = buttonTwo.titleLabel!.font.withSize(buttonTwo.titleLabel!.font.pointSize - 2)
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)

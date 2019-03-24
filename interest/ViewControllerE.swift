@@ -13,6 +13,7 @@ import UIKit
 class ViewControllerE: ViewController {
     
     
+    @IBOutlet weak var tipLabelToField: NSLayoutConstraint!
     @IBOutlet weak var tipLabelToLeft: NSLayoutConstraint!
     @IBOutlet weak var tipLabelToRight: NSLayoutConstraint!
     @IBOutlet weak var tipLabel: UILabel!
@@ -40,6 +41,11 @@ class ViewControllerE: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (modelName.contains("SE") || modelName.contains("5")) {
+            tipLabel.font = tipLabel.font.withSize(tipLabel.font.pointSize - 3)
+            tipLabelToField.constant = 10
+        }
+            
         tipLabel.layer.masksToBounds = true
         tipLabel.layer.cornerRadius = 20
                 

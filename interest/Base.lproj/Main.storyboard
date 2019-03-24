@@ -611,7 +611,7 @@
                                     <action selector="setOutput:" destination="aV4-lo-Ily" eventType="touchUpInside" id="osl-4L-aj9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips: Lämna fältet tomt om du planerar att ta lån!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="6TA-f3-79h" userLabel="Tip Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips: Lämna fältet tomt om du planerar att ta lån!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="6TA-f3-79h" userLabel="Tip Label">
                                 <rect key="frame" x="425" y="218" width="355" height="37"/>
                                 <color key="backgroundColor" red="0.3411764706" green="0.37254901959999998" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -657,6 +657,7 @@
                         <outlet property="percentToTopLabel" destination="oxw-6S-Mt5" id="FZP-JF-j98"/>
                         <outlet property="questionLabel" destination="Zas-JV-V6r" id="idg-83-Rpo"/>
                         <outlet property="tipLabel" destination="6TA-f3-79h" id="sEY-59-hbp"/>
+                        <outlet property="tipLabelToField" destination="jwU-0N-pCA" id="F67-KY-L8w"/>
                         <outlet property="tipLabelToLeft" destination="i7H-Gx-dD7" id="FRh-ND-OS1"/>
                         <outlet property="tipLabelToRight" destination="eYg-4h-5vh" id="KTQ-Dn-bkl"/>
                         <outlet property="view" destination="Ch8-jm-qLx" id="WZR-K7-CI2"/>

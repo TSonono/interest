@@ -15,7 +15,7 @@ class Helper {
     
     static func setDeviceConstraints(modelName: String, fieldToTopLabel: NSLayoutConstraint, percentToTopLabel: NSLayoutConstraint) -> (fieldToTopLabelConstant: CGFloat, percentToTopLabelConstant: CGFloat) {
         if (modelName.contains("5") || modelName.contains("SE")) {
-            return (190, 190)
+            return (195, 195)
         }
         else if (modelName == "iPhone 6" || modelName == "iPhone 6s" || modelName == "iPhone 7" || modelName == "iPhone 8" || modelName == "Simulator iPhone 8") {
             return (230, 230)
