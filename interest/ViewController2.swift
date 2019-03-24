@@ -15,6 +15,7 @@ import Lottie
 
 class ViewController2: UIViewController {
     var loanTerms:Terms!
+    //var loanTerms:Terms = Terms(interest: 2.0, fees: 2222, loanAmount: 1111111, loanDebt: 1111111, income: 0, amortizationMode: AmortizationMode.minimum)
     var timer = Timer()
     let STARTING_FRACTION = 0.5         // Starting place for slider
     let AMORTIZATION_RATE = 0.03
@@ -22,10 +23,17 @@ class ViewController2: UIViewController {
     @IBOutlet weak var lottieView: LOTAnimatedControl!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var slider: Slider!
+    @IBOutlet weak var sliderHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var monthlyLabel: UILabel!
+    @IBOutlet weak var debtLab: UILabel!
     @IBOutlet weak var debtLabel: UILabel!
     @IBOutlet weak var monthlyCostLabel: UILabel!
-
+    @IBOutlet weak var monthCostConst: NSLayoutConstraint!
+    @IBOutlet weak var monthConst: NSLayoutConstraint!
+    
+    
     var sliderLimit:Double!
     
     var amortDataEntry = PieChartDataEntry(value: 0)
@@ -51,6 +59,16 @@ class ViewController2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (modelName.contains("5") || modelName.contains("SE")) {
+            debtLabel.font = debtLabel.font.withSize(debtLabel.font.pointSize - 5)
+            monthlyCostLabel.font = monthlyCostLabel.font.withSize(monthlyCostLabel.font.pointSize - 5)
+            monthlyLabel.font = monthlyLabel.font.withSize(monthlyLabel.font.pointSize - 5)
+            debtLab.font = debtLab.font.withSize(debtLab.font.pointSize - 5)
+            
+            sliderHeight.constant = sliderHeight.constant - 15
+            monthConst.constant = monthConst.constant - 15
+            monthCostConst.constant = monthCostConst.constant - 15
+        }
         
         pieChart.isHidden = true
         

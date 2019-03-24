@@ -23,6 +23,14 @@ class Terms {
     var income:Int = 0
     var amortizationMode:AmortizationMode
     
+    init(interest: Double, fees: Int, loanAmount: Int, loanDebt: Int, income: Int, amortizationMode:AmortizationMode) {
+        self.interest = interest
+        self.fees = fees
+        self.loanAmount = loanAmount
+        self.loanDebt = loanDebt
+        self.income = income
+        self.amortizationMode = amortizationMode
+    }
     init(amortizationMode:AmortizationMode) {
         self.amortizationMode = amortizationMode
     }

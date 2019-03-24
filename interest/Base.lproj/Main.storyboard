@@ -170,7 +170,7 @@
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="YKT-Ge-trk" kind="relationship" relationship="rootViewController" id="L6P-a2-Epo"/>
+                        <segue destination="YKT-Ge-trk" kind="relationship" relationship="rootViewController" id="lYE-xa-UBy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UO0-c5-Vfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,7 +182,7 @@
             <objects>
                 <viewController id="IgW-a2-uoF" customClass="ViewController2" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FzU-k0-GGv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SH1-h0-Vqg" customClass="Slider" customModule="fluid_slider">
@@ -256,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRJ-D6-X2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="83"/>
+            <point key="canvasLocation" x="3130" y="919"/>
         </scene>
         <!--View Controller Home-->
         <scene sceneID="j9M-WM-iB1">
@@ -660,12 +660,120 @@
                         <outlet property="tipLabelToLeft" destination="i7H-Gx-dD7" id="FRh-ND-OS1"/>
                         <outlet property="tipLabelToRight" destination="eYg-4h-5vh" id="KTQ-Dn-bkl"/>
                         <outlet property="view" destination="Ch8-jm-qLx" id="WZR-K7-CI2"/>
-                        <segue destination="IgW-a2-uoF" kind="show" identifier="toResult" id="zjV-6f-ehT"/>
+                        <segue destination="1rS-qX-yLy" kind="show" identifier="toResult" id="5sT-WY-5u7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VE-WL-1Lo" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1794" y="83"/>
+        </scene>
+        <!--Resultat-->
+        <scene sceneID="jFx-pb-1AH">
+            <objects>
+                <viewController id="1rS-qX-yLy" customClass="ViewController2" customModule="interest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jqy-sZ-d9I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yE-H8-HVt" customClass="Slider" customModule="fluid_slider">
+                                <rect key="frame" x="29" y="588" width="317" height="62"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="OMv-3S-3DZ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="pauseTimerForSlider:" destination="1rS-qX-yLy" eventType="valueChanged" id="DZo-8Q-T41"/>
+                                    <action selector="sliderMoves:" destination="1rS-qX-yLy" eventType="valueChanged" id="R3i-zO-IQr"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbc-MD-9ny">
+                                <rect key="frame" x="233" y="452" width="126" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIo-bJ-mfi" customClass="LOTAnimatedControl">
+                                <rect key="frame" x="67" y="75" width="240" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KIo-bJ-mfi" secondAttribute="height" multiplier="6:5" id="lSN-Q7-WnU"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Månadskostnad:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7as-t0-8CX">
+                                <rect key="frame" x="29" y="452" width="196" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SU2-oe-YSx">
+                                <rect key="frame" x="233" y="396" width="126" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Återstående skuld:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJC-1p-J4s">
+                                <rect key="frame" x="29" y="396" width="196" height="48"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="År frammåt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9q7-A3-Tbp">
+                                <rect key="frame" x="139.66666666666666" y="545" width="95.666666666666657" height="23"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8Q-im-Gqz" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="-40" width="343" height="428"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="h8Q-im-Gqz" secondAttribute="height" multiplier="343:428" id="Llb-gY-NiM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QhI-va-S2E" firstAttribute="bottom" secondItem="9yE-H8-HVt" secondAttribute="bottom" constant="40" id="4B9-Ud-qag"/>
+                            <constraint firstItem="7as-t0-8CX" firstAttribute="leading" secondItem="QhI-va-S2E" secondAttribute="leading" constant="29" id="56h-8P-eI0"/>
+                            <constraint firstAttribute="trailing" secondItem="9yE-H8-HVt" secondAttribute="trailing" constant="29" id="69V-jg-EWR"/>
+                            <constraint firstItem="QhI-va-S2E" firstAttribute="trailing" secondItem="vbc-MD-9ny" secondAttribute="trailing" constant="16" id="6h1-l7-y7k"/>
+                            <constraint firstItem="QhI-va-S2E" firstAttribute="trailing" secondItem="KIo-bJ-mfi" secondAttribute="trailing" constant="68" id="E1a-T2-Mze"/>
+                            <constraint firstItem="9q7-A3-Tbp" firstAttribute="top" secondItem="vbc-MD-9ny" secondAttribute="bottom" constant="41" id="KIv-pd-Cco"/>
+                            <constraint firstItem="9yE-H8-HVt" firstAttribute="top" secondItem="9q7-A3-Tbp" secondAttribute="bottom" constant="20" id="MYX-2F-BJS"/>
+                            <constraint firstItem="vbc-MD-9ny" firstAttribute="top" secondItem="SU2-oe-YSx" secondAttribute="bottom" constant="8" id="SVF-cW-aSn"/>
+                            <constraint firstItem="QhI-va-S2E" firstAttribute="trailing" secondItem="SU2-oe-YSx" secondAttribute="trailing" constant="16" id="aoZ-ZS-och"/>
+                            <constraint firstItem="h8Q-im-Gqz" firstAttribute="leading" secondItem="QhI-va-S2E" secondAttribute="leading" constant="16" id="cXA-a5-05q"/>
+                            <constraint firstItem="9yE-H8-HVt" firstAttribute="leading" secondItem="jqy-sZ-d9I" secondAttribute="leading" constant="29" id="fxu-Lz-tnm"/>
+                            <constraint firstItem="QhI-va-S2E" firstAttribute="top" secondItem="h8Q-im-Gqz" secondAttribute="top" constant="40" id="hSx-OC-Y2h"/>
+                            <constraint firstItem="KIo-bJ-mfi" firstAttribute="top" secondItem="QhI-va-S2E" secondAttribute="top" constant="75" id="l9a-yT-lKl"/>
+                            <constraint firstItem="QhI-va-S2E" firstAttribute="trailing" secondItem="h8Q-im-Gqz" secondAttribute="trailing" constant="16" id="lR2-eb-MCe"/>
+                            <constraint firstItem="7as-t0-8CX" firstAttribute="top" secondItem="PJC-1p-J4s" secondAttribute="bottom" constant="8" id="rlT-Qt-6X9"/>
+                            <constraint firstItem="PJC-1p-J4s" firstAttribute="leading" secondItem="QhI-va-S2E" secondAttribute="leading" constant="29" id="sJU-PP-OwM"/>
+                            <constraint firstItem="KIo-bJ-mfi" firstAttribute="leading" secondItem="QhI-va-S2E" secondAttribute="leading" constant="67" id="uD0-VC-gaO"/>
+                            <constraint firstItem="9q7-A3-Tbp" firstAttribute="centerX" secondItem="QhI-va-S2E" secondAttribute="centerX" id="xsA-rl-xpm"/>
+                            <constraint firstItem="9q7-A3-Tbp" firstAttribute="top" secondItem="7as-t0-8CX" secondAttribute="bottom" constant="41" id="zDc-fA-Zam"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QhI-va-S2E"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Resultat" id="I0V-vO-Iv7"/>
+                    <connections>
+                        <outlet property="debtLab" destination="PJC-1p-J4s" id="eIl-6d-dKh"/>
+                        <outlet property="debtLabel" destination="SU2-oe-YSx" id="fgQ-5m-7Zx"/>
+                        <outlet property="label" destination="9q7-A3-Tbp" id="Fl4-a2-ldO"/>
+                        <outlet property="lottieView" destination="KIo-bJ-mfi" id="tWZ-KB-whs"/>
+                        <outlet property="monthConst" destination="zDc-fA-Zam" id="oms-3U-P4X"/>
+                        <outlet property="monthCostConst" destination="KIv-pd-Cco" id="YMR-vb-eNC"/>
+                        <outlet property="monthlyCostLabel" destination="vbc-MD-9ny" id="207-mb-hOd"/>
+                        <outlet property="monthlyLabel" destination="7as-t0-8CX" id="ffs-IX-ip8"/>
+                        <outlet property="pieChart" destination="h8Q-im-Gqz" id="qeA-At-dHq"/>
+                        <outlet property="slider" destination="9yE-H8-HVt" id="sBp-MF-mAg"/>
+                        <outlet property="sliderHeight" destination="OMv-3S-3DZ" id="Vy0-xh-wew"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIG-V2-cQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4255" y="78"/>
         </scene>
     </scenes>
     <resources>
